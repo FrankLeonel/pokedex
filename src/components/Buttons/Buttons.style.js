@@ -27,11 +27,12 @@ export const SecondaryButton = styled.button({
 export const TertiaryButton = styled.button({
   background: "none",
   border: "none",
-  color: (props) => props.theme.primaryColor,
+  color: (props) => props.theme.textColorOnPrimary,
   borderRadius: "8px",
-  padding: "18px 12px",
+  padding: "12px",
+  fontWeight: "600",
 
   "&:hover": {
-    backgroundColor: (props) => props.theme.primaryHoverColor,
+    color: (props) => props.theme.textColor,
   },
 });
