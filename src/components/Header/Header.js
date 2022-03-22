@@ -10,7 +10,7 @@ import * as S from "./Header.style";
 import MenuMain from "./MenuMain";
 import SeachBar from "./SeachBar";
 
-const Header = () => {
+const Header = ({ handleSubmitSearch, search, setSearch, loading }) => {
   const { theme, setTheme } = useContext(ThemeContext);
   // const { pokemons } = usePokemons();
   // const lengthFavorites = pokemons.length;
@@ -36,6 +36,15 @@ const Header = () => {
       setTheme("dark");
     }
   };
+
+  const Search = (
+    <SeachBar
+      search={search}
+      setSearch={setSearch}
+      handleSubmitSearch={handleSubmitSearch}
+      loading={loading}
+    />
+  );
 
   return (
     <S.Header>
@@ -64,11 +73,11 @@ const Header = () => {
               onColor={darkTheme.switchColor}
             />
 
-            {width >= 768 ? <SeachBar /> : null}
+            {width >= 768 ? <>{Search}</> : null}
           </S.ContainerOptions>
         </S.Section>
       </S.Container>
-      {width < 768 ? <SeachBar /> : null}
+      {width < 768 ? <>{Search}</> : null}
       <Drawer show={showMenu} items={menuItems} onClose={onToggleMenu} />
     </S.Header>
   );

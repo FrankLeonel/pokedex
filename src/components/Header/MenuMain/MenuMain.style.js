@@ -39,7 +39,7 @@ export const Link = styled(NavLink)({
 
   "&.active": {
     "+ hr": {
-      width: "120px",
+      // width: "120px",
       position: "absolute",
       margin: "auto 0",
       top: 48,
