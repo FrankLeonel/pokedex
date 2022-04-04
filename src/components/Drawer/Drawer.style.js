@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Drawer = styled.div({
+export const Drawer = styled.div(({ theme: { breakpoints }, show }) => ({
   position: "fixed",
   margin: 0,
   padding: 0,
@@ -16,18 +16,18 @@ export const Drawer = styled.div({
   "&.left": {
     left: 0,
     float: "left",
-    transform: (props) => (props.show ? "translateX(0)" : "translateX(-100%)"),
+    transform: show ? "translateX(0)" : "translateX(-100%)",
   },
 
   "&.right": {
     right: 0,
     float: "right",
-    transform: (props) => (props.show ? "translateX(0)" : "translateX(100%)"),
+    transform: show ? "translateX(0)" : "translateX(100%)",
   },
 
   transition: "transform 0.3s ease-out, z-index 0.2s ease-out",
 
-  "@media (min-width: 768px)": {
+  [breakpoints.md]: {
     display: "none",
   },
-});
+}));

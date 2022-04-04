@@ -39,86 +39,7 @@ export const neutral = {
   900: "#000000",
 };
 
-export const light = {
-  primary: "#5636D3",
-
-  pink: "#d53f8c",
-
-  secondary: "#FF872C",
-  secondary_light: "rgba(255, 135, 44, 0.3)",
-
-  success: "#12A454",
-  success_light: "rgba(18, 164, 84, 0.5)",
-
-  attention: "#E83F5B",
-  attention_light: "rgba(232, 63, 91, 0.5)",
-
-  red: "#FF3326",
-
-  shape: "#FFFFFF",
-  shape_100: "#f5f5f4",
-  shape_200: "#D9E0DB",
-
-  title: "#",
-
-  text: "#999591",
-  text_light: "#D2D4D6",
-  text_dark: "#1E1E1F",
-
-  button_text: "#1E1E1F",
-  button_theme: "#343232",
-
-  background: "#fff",
-
-  gray_100: "#E7DFDF",
-  gray_200: "#F3F3F3",
-  gray_300: "#343232",
-  gray_400: "#343232",
-
-  yellow: "#FFCB05",
-};
-
-export const dark = {
-  primary: "#5636D3",
-
-  pink: "#d53f8c",
-
-  secondary: "#FF872C",
-  secondary_light: "rgba(255, 135, 44, 0.3)",
-
-  success: "#12A454",
-  success_light: "rgba(18, 164, 84, 0.5)",
-
-  attention: "#E83F5B",
-  attention_light: "rgba(232, 63, 91, 0.5)",
-
-  red: "#FF3326",
-
-  shape: "#343232",
-  shape_100: "#f5f5f4",
-  shape_200: "#D9E0DB",
-
-  title: "#",
-
-  text: "#999591",
-  text_light: "#343232",
-  text_dark: "#FFCB05",
-
-  button_text: "#F3F3F3",
-  button_theme: "#E7DFDF",
-
-  background: "#343232",
-
-  gray_100: "#E7DFDF",
-  gray_200: "#F3F3F3",
-  gray_300: "#FFCB05",
-
-  gray_400: "#343232",
-
-  yellow: "#FFCB05",
-};
-
-export const colorsPok = {
+export const colorsPokemon = {
   color_bug_type_dark: "#66bb6a",
   color_bug_type_light: "#81c784",
   color_dark_type_dark: "#757575",
@@ -155,4 +76,13 @@ export const colorsPok = {
   color_steel_type_light: "#bdbdbd",
   color_water_type_dark: "#76befe",
   color_water_type_light: "#8fd1fd",
+};
+
+export const colors = {
+  blue,
+  green,
+  red,
+  yellow,
+  neutral,
+  colorsPokemon,
 };

@@ -1,7 +1,5 @@
 import Dashboard from "components/Dashboard";
 
-const DashboardPage = () => {
-  return <Dashboard />;
-};
+const DashboardPage = () => <Dashboard />;
 
 export default DashboardPage;

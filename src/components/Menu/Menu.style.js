@@ -36,17 +36,17 @@ export const Container = styled.div({
   overflow: "auto",
 });
 
-export const Menu = styled.div`
-  position: relative;
-  width: 100%;
-  height: calc(100% - 70px);
-  overflow: auto;
+export const Menu = styled.div(({ theme }) => ({
+  position: "relative",
+  width: "100%",
+  height: "calc(100% - 70px)",
+  overflow: "auto",
 
-  &.forward {
-    ${transitionForward()};
-  }
+  "&.forward": {
+    transitionForward,
+  },
 
-  &.backward {
-    ${transitionBackward()};
-  }
-`;
+  "&.backward": {
+    transitionBackward,
+  },
+}));

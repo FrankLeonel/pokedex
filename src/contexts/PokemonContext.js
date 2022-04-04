@@ -14,6 +14,7 @@ const PokemonContext = createContext();
 const PokemonProvider = ({ children }) => {
   const [pokemonList, setPokemonList] = useState([]);
   const { search } = useSearch();
+  const [loading, setLoading] = useState(!pokemonList.length);
 
   const getPokemon = useCallback(async (id) => {
     const { data: pokemonData } = await endpoints.getPokemon(id);
@@ -149,6 +150,8 @@ const PokemonProvider = ({ children }) => {
   return (
     <PokemonContext.Provider
       value={{
+        loading,
+        setLoading,
         pokemonList,
         setPokemonList,
         getPokemon,

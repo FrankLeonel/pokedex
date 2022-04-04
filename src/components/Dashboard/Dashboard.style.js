@@ -1,6 +1,29 @@
 import pokeball from "assets/icons/pokeball.svg";
 import styled from "styled-components";
 
+export const ContainerContents = styled.div({
+  margin: "30px 20px",
+});
+
+export const PokemonGrid = styled.ul(({ theme }) => ({
+  display: "grid",
+  gridTemplateColumns: "repeat(1, 1fr)",
+  gridGap: "20px",
+  marginBottom: "10px",
+
+  [theme.breakpoints.md]: {
+    gridTemplateColumns: "repeat(2, 1fr)",
+  },
+
+  [theme.breakpoints.lg]: {
+    gridTemplateColumns: "repeat(3, 1fr)",
+  },
+
+  [theme.breakpoints.xl]: {
+    gridTemplateColumns: "repeat(4, 1fr)",
+  },
+}));
+
 export const ContainerMorePokemon = styled.div({
   width: "100%",
   display: "flex",
@@ -29,7 +52,8 @@ export const Loader = styled.div`
 
 export const EmptyPokemonList = styled.form({
   width: "100%",
-  border: `2px solid ${(props) => props.theme.textWarning}`,
+  border: "2px solid",
+  borderColor: (props) => props.theme.textWarning,
   borderRadius: "20px",
   padding: "10px",
   h3: {

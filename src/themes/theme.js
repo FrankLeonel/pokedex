@@ -1,7 +1,10 @@
-import { neutral, red, yellow } from "./colors";
+import breakpoints from "./breakpoints";
+import { colors, neutral, red, yellow } from "./colors";
 import { primaryFont } from "./typography";
 
 export const lightTheme = {
+  breakpoints,
+  colors,
   background: neutral[100],
   backgroundMenu: neutral[100],
   backgroundMenuInverted: neutral[700],
@@ -11,6 +14,7 @@ export const lightTheme = {
   header: neutral[100],
   switchColor: neutral[700],
   dividerColor: neutral[700],
+  shadow: neutral[700],
   primaryColor: neutral[700],
   primaryHoverColor: neutral[800],
   textColorOnPrimary: neutral[300],
@@ -23,6 +27,8 @@ export const lightTheme = {
 };
 
 export const darkTheme = {
+  breakpoints,
+  colors,
   background: neutral[800],
   backgroundMenu: neutral[700],
   backgroundMenuInverted: neutral[100],
@@ -32,6 +38,7 @@ export const darkTheme = {
   header: neutral[700],
   switchColor: neutral[600],
   dividerColor: neutral[100],
+  shadow: neutral[500],
   primaryColor: neutral[600],
   primaryHoverColor: neutral[500],
   textColorOnPrimary: neutral[100],

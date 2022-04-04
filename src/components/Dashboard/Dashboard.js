@@ -1,7 +1,6 @@
 import { PrimaryButton } from "components/Buttons/Buttons.style";
 import Header from "components/Header";
 import PokemonCard from "components/PokemonCard";
-import { endpoints } from "config/endpoints";
 import { usePokemon } from "contexts/PokemonContext";
 import useSearch from "hooks/useSearch";
 import { useCallback, useEffect, useState } from "react";
@@ -9,15 +8,14 @@ import * as S from "./Dashboard.style";
 
 const Dashboard = () => {
   const {
+    loading,
+    setLoading,
     pokemonList,
-    setPokemonList,
     getPokemonInterval,
-    getPokemonSearch,
     getContinueSearchList,
   } = usePokemon();
-  const { search, setSearch } = useSearch();
+  const { search } = useSearch();
 
-  const [loading, setLoading] = useState(false);
   const [hasMorePokemon, setHasMorePokemon] = useState(true);
 
   const handleGetMorePokemon = useCallback(async () => {
@@ -28,63 +26,51 @@ const Dashboard = () => {
     else await getContinueSearchList();
 
     setLoading(false);
-  }, [getPokemonInterval, getContinueSearchList, pokemonList, search]);
-
-  const handleSubmitSearch = useCallback(
-    async (event) => {
-      event.preventDefault();
-      setPokemonList([]);
-      setLoading(true);
-
-      const { data } = await endpoints.getContinueSearchList();
-      const listPokemonNames = data.results;
-
-      const matchSearchList = listPokemonNames.filter((pokemon) => {
-        return pokemon.name.includes(search.toLowerCase());
-      });
-
-      await getPokemonSearch(matchSearchList);
-      setLoading(false);
-    },
-    [setPokemonList, getPokemonSearch, search]
-  );
+  }, [
+    setLoading,
+    getPokemonInterval,
+    getContinueSearchList,
+    pokemonList,
+    search,
+  ]);
 
   useEffect(() => {
     if (pokemonList.length) setLoading(false);
     setHasMorePokemon(!!pokemonList.length && !(pokemonList.length % 52));
-  }, [pokemonList]);
+  }, [setLoading, pokemonList]);
 
   return (
     <>
-      <Header
-        handleSubmitSearch={handleSubmitSearch}
-        search={search}
-        loading={loading}
-        setSearch={setSearch}
-      />
-      <div>
-        {pokemonList.map((pokemon) => (
-          <PokemonCard name={pokemon.name} key={pokemon.id} />
-        ))}
-      </div>
+      <Header />
+      <S.ContainerContents>
+        <S.PokemonGrid>
+          {pokemonList.map((pokemon) => (
+            <PokemonCard
+              key={pokemon.id}
+              pokemon={pokemon}
+              sprite={pokemon.sprites.other["official-artwork"].front_default}
+            />
+          ))}
+        </S.PokemonGrid>
 
-      {loading && <S.Loader />}
+        {loading && <S.Loader />}
 
-      <div>
-        {!loading && hasMorePokemon && (
-          <S.ContainerMorePokemon>
-            <PrimaryButton type="button" onClick={handleGetMorePokemon}>
-              Load more Pokémon
-            </PrimaryButton>
-          </S.ContainerMorePokemon>
-        )}
+        <div>
+          {!loading && hasMorePokemon && (
+            <S.ContainerMorePokemon>
+              <PrimaryButton type="button" onClick={handleGetMorePokemon}>
+                Load more Pokémon
+              </PrimaryButton>
+            </S.ContainerMorePokemon>
+          )}
 
-        {!loading && !pokemonList.length && (
-          <S.EmptyPokemonList>
-            <h3>No Pokémon matches your search!</h3>
-          </S.EmptyPokemonList>
-        )}
-      </div>
+          {!loading && !pokemonList.length && (
+            <S.EmptyPokemonList>
+              <h3>Nenhum pokémon foi encontrado!</h3>
+            </S.EmptyPokemonList>
+          )}
+        </div>
+      </S.ContainerContents>
     </>
   );
 };

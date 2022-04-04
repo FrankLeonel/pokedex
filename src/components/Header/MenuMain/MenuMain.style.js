@@ -1,17 +1,17 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-export const Items = styled.ul({
-  "@media (max-width: 767px)": {
-    display: "none",
-  },
+export const Items = styled.ul(({ theme: { breakpoints } }) => ({
+  display: "none",
 
-  display: "inline-flex",
-  margin: `auto 28px`,
-  listStyle: "none",
-  alignItems: "center",
-  height: "100%",
-});
+  [breakpoints.md]: {
+    display: "inline-flex",
+    margin: `auto 28px`,
+    listStyle: "none",
+    alignItems: "center",
+    height: "100%",
+  },
+}));
 
 export const Item = styled.li({
   display: "flex",
@@ -39,10 +39,9 @@ export const Link = styled(NavLink)({
 
   "&.active": {
     "+ hr": {
-      // width: "120px",
       position: "absolute",
       margin: "auto 0",
-      top: 48,
+      top: 36,
       height: "3px",
     },
   },

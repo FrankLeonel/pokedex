@@ -4,7 +4,6 @@ import styled from "styled-components";
 export const Item = styled.li({
   display: "block",
   alignItems: "center",
-  // color: (props) => props.theme.colorMenu,
   width: "100%",
   height: "70px",
   cursor: "pointer",
@@ -24,7 +23,6 @@ export const Link = styled(NavLink)({
 
   "&.active": {
     "+ hr": {
-      // width: "100px",
       backgroundColor: (props) => props.theme.dividerColor,
       height: "2px",
     },

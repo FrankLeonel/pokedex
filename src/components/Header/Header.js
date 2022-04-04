@@ -1,17 +1,19 @@
 import { ReactComponent as MenuIcon } from "assets/icons/menu-icon.svg";
+import Content from "components/Content";
 import Drawer from "components/Drawer";
 import { ThemeContext } from "contexts/ThemeContext";
 import useToggle from "hooks/useToggle";
 import useWindowDimensions from "hooks/useWindowDimension";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { darkTheme, lightTheme } from "utils/themes";
+import { useTheme } from "styled-components";
 import * as S from "./Header.style";
 import MenuMain from "./MenuMain";
 import SeachBar from "./SeachBar";
 
-const Header = ({ handleSubmitSearch, search, setSearch, loading }) => {
+const Header = () => {
   const { theme, setTheme } = useContext(ThemeContext);
+  const usedTheme = useTheme();
   // const { pokemons } = usePokemons();
   // const lengthFavorites = pokemons.length;
 
@@ -25,7 +27,7 @@ const Header = ({ handleSubmitSearch, search, setSearch, loading }) => {
     },
     {
       label: "Favoritos",
-      path: "/details",
+      path: "/favoritos",
     },
   ];
 
@@ -37,18 +39,9 @@ const Header = ({ handleSubmitSearch, search, setSearch, loading }) => {
     }
   };
 
-  const Search = (
-    <SeachBar
-      search={search}
-      setSearch={setSearch}
-      handleSubmitSearch={handleSubmitSearch}
-      loading={loading}
-    />
-  );
-
   return (
     <S.Header>
-      <S.Container>
+      <Content>
         <S.Section>
           <S.Wrapper>
             <S.MenuBurger onClick={onToggleMenu}>
@@ -69,15 +62,15 @@ const Header = ({ handleSubmitSearch, search, setSearch, loading }) => {
               height={28}
               width={56}
               handleDiameter={22}
-              offColor={lightTheme.switchColor}
-              onColor={darkTheme.switchColor}
+              offColor={usedTheme.switchColor}
+              onColor={usedTheme.switchColor}
             />
 
-            {width >= 768 ? <>{Search}</> : null}
+            {width >= 768 ? <SeachBar /> : null}
           </S.ContainerOptions>
         </S.Section>
-      </S.Container>
-      {width < 768 ? <>{Search}</> : null}
+      </Content>
+      {width < 768 ? <SeachBar /> : null}
       <Drawer show={showMenu} items={menuItems} onClose={onToggleMenu} />
     </S.Header>
   );

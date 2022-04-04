@@ -1,7 +1,7 @@
 import { useThemeContext } from "hooks/useThemeContext";
 import { createContext } from "react";
 import { ThemeProvider } from "styled-components";
-import { darkTheme, lightTheme } from "utils/themes";
+import { darkTheme, lightTheme } from "themes/theme";
 
 export const ThemeContext = createContext();
 
