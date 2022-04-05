@@ -28,13 +28,13 @@ const transitionBackward = () => css`
   animation: ${moveToLeft} 400ms ease-in-out;
 `;
 
-export const Container = styled.div({
+export const Container = styled.div(({ theme: { backgroundMenu } }) => ({
   position: "relative",
   width: "100%",
   height: "100%",
-  backgroundColor: (props) => props.theme.backgroundMenu,
+  backgroundColor: backgroundMenu,
   overflow: "auto",
-});
+}));
 
 export const Menu = styled.div(({ theme }) => ({
   position: "relative",

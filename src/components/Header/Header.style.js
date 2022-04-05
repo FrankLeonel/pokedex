@@ -2,47 +2,50 @@ import { ReactComponent as Pokemon } from "assets/icons/logo-white.svg";
 import { BsMoonFill, BsSunFill } from "react-icons/bs";
 import Switch from "react-switch";
 import styled from "styled-components";
+import hexToRgba from "utils/hexToRgba";
 
-export const Header = styled.div(({ theme: { breakpoints, header } }) => ({
-  position: "sticky",
-  top: 0,
-  left: 0,
-  zIndex: 1,
-  width: "100%",
-  height: "60px",
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-
-  backgroundColor: header,
-  boxShadow: "0 1px 2px 0 rgba(0, 0, 0, .1)",
-
-  [breakpoints.md]: {
+export const Header = styled.div(
+  ({ theme: { breakpoints, headerBackground, generalColors } }) => ({
+    position: "sticky",
+    top: 0,
+    left: 0,
+    zIndex: 1,
+    width: "100%",
+    height: "60px",
     display: "flex",
-    flexDirection: "row",
-  },
-}));
+    flexDirection: "column",
+    alignItems: "center",
 
-export const Section = styled.div({
+    backgroundColor: headerBackground,
+    boxShadow: `0 1px 2px 0 ${hexToRgba(generalColors.black, 0.1)}`,
+
+    [breakpoints.md]: {
+      display: "flex",
+      flexDirection: "row",
+    },
+  })
+);
+
+export const Section = styled.div(({ theme }) => ({
   display: "flex",
   flex: 1,
   alignItems: "center",
   justifyContent: "space-between",
   width: "100%",
   height: "100%",
-});
+}));
 
-export const Wrapper = styled.section({
+export const Wrapper = styled.section(({ theme }) => ({
   display: "inline-flex",
   alignItems: "center",
   height: "inherit",
-});
+}));
 
-export const Logo = styled(Pokemon)({
+export const Logo = styled(Pokemon)(({ theme: { logo } }) => ({
   path: {
-    fill: (props) => props.theme.logo,
+    fill: logo,
   },
-});
+}));
 
 export const MenuBurger = styled.button(({ theme: { breakpoints, logo } }) => ({
   display: "block",
@@ -81,20 +84,20 @@ export const SwitchTheme = styled(Switch)(({ theme }) => ({
   marginRight: "8px",
 }));
 
-export const IconMoon = styled(BsMoonFill)(({ theme }) => ({
+export const IconMoon = styled(BsMoonFill)(({ theme: { white } }) => ({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
   height: "100%",
   margin: "0 8px",
-  color: "#FFFF",
+  color: white,
 }));
 
-export const IconSun = styled(BsSunFill)(({ theme }) => ({
+export const IconSun = styled(BsSunFill)(({ theme: { white } }) => ({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
   height: "100%",
-  color: "#FFFF",
+  color: white,
   margin: "0 8px",
 }));

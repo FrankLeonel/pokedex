@@ -1,9 +1,9 @@
 import pokeball from "assets/icons/pokeball.svg";
 import styled from "styled-components";
 
-export const ContainerContents = styled.div({
+export const ContainerContents = styled.div(({ theme }) => ({
   margin: "30px 20px",
-});
+}));
 
 export const PokemonGrid = styled.ul(({ theme }) => ({
   display: "grid",
@@ -31,34 +31,37 @@ export const ContainerMorePokemon = styled.div({
   padding: "23px 0",
 });
 
-export const Loader = styled.div`
-  margin: 30px auto;
-  background: url(${pokeball}) no-repeat;
-  background-size: contain;
-  background-position: center;
-  width: 50px;
-  height: 50px;
-  -webkit-animation: spin 2s linear infinite;
-  animation: spin 1s linear infinite;
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-`;
-
-export const EmptyPokemonList = styled.form({
-  width: "100%",
-  border: "2px solid",
-  borderColor: (props) => props.theme.textWarning,
-  borderRadius: "20px",
-  padding: "10px",
-  h3: {
-    color: (props) => props.theme.textWarning,
-    fontWeight: "normal",
-    textAlign: "center",
+export const Loader = styled.div(({ theme }) => ({
+  margin: "30px auto",
+  background: `url(${pokeball}) no-repeat`,
+  backgroundSize: "contain",
+  backgroundOosition: "center",
+  width: "50px",
+  height: "50px",
+  webkitAnimation: "spin 2s linear infinite",
+  animation: "spin 1s linear infinite",
+  "@keyframes spin": {
+    "0%": {
+      transform: "rotate(0deg)",
+    },
+    "100%": {
+      transform: "rotate(360deg)",
+    },
   },
-});
+}));
+
+export const EmptyPokemonList = styled.form(
+  ({ theme: { typeScale, textWarning } }) => ({
+    width: "100%",
+    border: "2px solid",
+    borderColor: textWarning,
+    borderRadius: "20px",
+    padding: "10px",
+    h3: {
+      fontSize: typeScale.header3,
+      color: textWarning,
+      fontWeight: "normal",
+      textAlign: "center",
+    },
+  })
+);
