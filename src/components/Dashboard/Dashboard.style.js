@@ -2,7 +2,7 @@ import pokeball from "assets/icons/pokeball.svg";
 import styled from "styled-components";
 
 export const ContainerContents = styled.div(({ theme }) => ({
-  margin: "30px 20px",
+  margin: "30px 0",
 }));
 
 export const PokemonGrid = styled.ul(({ theme }) => ({

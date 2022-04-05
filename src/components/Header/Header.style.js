@@ -5,19 +5,18 @@ import styled from "styled-components";
 import hexToRgba from "utils/hexToRgba";
 
 export const Header = styled.div(
-  ({ theme: { breakpoints, headerBackground, generalColors } }) => ({
+  ({ theme: { breakpoints, headerBackground } }) => ({
     position: "sticky",
     top: 0,
     left: 0,
     zIndex: 1,
     width: "100%",
-    height: "60px",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    height: "auto",
 
     backgroundColor: headerBackground,
-    boxShadow: `0 1px 2px 0 ${hexToRgba(generalColors.black, 0.1)}`,
 
     [breakpoints.md]: {
       display: "flex",
@@ -25,6 +24,15 @@ export const Header = styled.div(
     },
   })
 );
+
+export const Container = styled.div(({ theme: { generalColors, header } }) => ({
+  backgroundColor: header,
+  display: "flex",
+  alignItems: "center",
+  width: "100%",
+  height: "60px",
+  boxShadow: `0 1px 2px 0 ${hexToRgba(generalColors.black, 0.1)}`,
+}));
 
 export const Section = styled.div(({ theme }) => ({
   display: "flex",
@@ -80,8 +88,12 @@ export const ContainerOptions = styled.div(({ theme }) => ({
   height: "100%",
 }));
 
-export const SwitchTheme = styled(Switch)(({ theme }) => ({
-  marginRight: "8px",
+export const SwitchTheme = styled(Switch)(({ theme: { breakpoints } }) => ({
+  marginRight: 0,
+
+  [breakpoints.md]: {
+    marginRight: "8px",
+  },
 }));
 
 export const IconMoon = styled(BsMoonFill)(({ theme: { generalColors } }) => ({

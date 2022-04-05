@@ -41,7 +41,7 @@ export const Link = styled(NavLink)({
     "+ hr": {
       position: "absolute",
       margin: "auto 0",
-      top: 36,
+      top: 38,
       height: "3px",
     },
   },

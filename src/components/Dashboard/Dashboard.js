@@ -1,5 +1,6 @@
 import BackTop from "components/BackTop";
 import Button from "components/Button";
+import Content from "components/Content";
 import Header from "components/Header";
 import PokemonCard from "components/PokemonCard";
 import { usePokemon } from "contexts/PokemonContext";
@@ -43,37 +44,39 @@ const Dashboard = () => {
   return (
     <>
       <Header />
-      <S.ContainerContents>
-        <S.PokemonGrid>
-          {pokemonList.map((pokemon) => (
-            <PokemonCard
-              key={pokemon.id}
-              pokemon={pokemon}
-              sprite={pokemon.sprites.other["official-artwork"].front_default}
-            />
-          ))}
-        </S.PokemonGrid>
+      <Content>
+        <S.ContainerContents>
+          <S.PokemonGrid>
+            {pokemonList.map((pokemon) => (
+              <PokemonCard
+                key={pokemon.id}
+                pokemon={pokemon}
+                sprite={pokemon.sprites.other["official-artwork"].front_default}
+              />
+            ))}
+          </S.PokemonGrid>
 
-        {loading && <S.Loader />}
+          {loading && <S.Loader />}
 
-        <div>
-          {!loading && hasMorePokemon && (
-            <S.ContainerMorePokemon>
-              <Button type="button" onClick={handleGetMorePokemon}>
-                Load more Pokémon
-              </Button>
-            </S.ContainerMorePokemon>
-          )}
+          <div>
+            {!loading && hasMorePokemon && (
+              <S.ContainerMorePokemon>
+                <Button type="button" onClick={handleGetMorePokemon}>
+                  Load more Pokémon
+                </Button>
+              </S.ContainerMorePokemon>
+            )}
 
-          {!loading && !pokemonList.length && (
-            <S.EmptyPokemonList>
-              <h3>Nenhum pokémon foi encontrado!</h3>
-            </S.EmptyPokemonList>
-          )}
-        </div>
+            {!loading && !pokemonList.length && (
+              <S.EmptyPokemonList>
+                <h3>Nenhum pokémon foi encontrado!</h3>
+              </S.EmptyPokemonList>
+            )}
+          </div>
 
-        <BackTop />
-      </S.ContainerContents>
+          <BackTop />
+        </S.ContainerContents>
+      </Content>
     </>
   );
 };
