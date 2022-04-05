@@ -84,20 +84,20 @@ export const SwitchTheme = styled(Switch)(({ theme }) => ({
   marginRight: "8px",
 }));
 
-export const IconMoon = styled(BsMoonFill)(({ theme: { white } }) => ({
+export const IconMoon = styled(BsMoonFill)(({ theme: { generalColors } }) => ({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
   height: "100%",
   margin: "0 8px",
-  color: white,
+  color: generalColors.white,
 }));
 
-export const IconSun = styled(BsSunFill)(({ theme: { white } }) => ({
+export const IconSun = styled(BsSunFill)(({ theme: { generalColors } }) => ({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
   height: "100%",
-  color: white,
+  color: generalColors.white,
   margin: "0 8px",
 }));
