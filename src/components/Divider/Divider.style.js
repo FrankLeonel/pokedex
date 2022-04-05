@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-export const Separator = styled.hr({
+export const Separator = styled.hr(({ theme: { dividerColor } }) => ({
   width: "100%",
   height: "1px",
-  backgroundColor: (props) => props.theme.dividerColor,
-});
+  backgroundColor: dividerColor,
+}));

@@ -1,15 +1,7 @@
 import styled from "styled-components";
 
 export const Form = styled.form(
-  ({
-    theme: {
-      breakpoints,
-      formElementBackground,
-      textOnFormElementBackground,
-      primaryColor,
-      primaryHoverColor,
-    },
-  }) => ({
+  ({ theme: { breakpoints, formColor, primaryColor, primaryHoverColor } }) => ({
     margin: "30px 0",
     width: "100%",
     display: "flex",
@@ -26,8 +18,8 @@ export const Form = styled.form(
       borderRight: "none",
       float: "left",
       width: "78%",
-      backgroundColor: formElementBackground,
-      color: textOnFormElementBackground,
+      backgroundColor: formColor.formElementBackground,
+      color: formColor.textOnFormElementBackground,
       borderRadius: "20px 0 0 20px",
 
       [breakpoints.md]: {

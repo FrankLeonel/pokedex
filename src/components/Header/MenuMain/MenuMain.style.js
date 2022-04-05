@@ -13,7 +13,7 @@ export const Items = styled.ul(({ theme: { breakpoints } }) => ({
   },
 }));
 
-export const Item = styled.li({
+export const Item = styled.li(({ theme: { colorMenu } }) => ({
   display: "flex",
   position: "relative",
   flexDirection: "column",
@@ -24,9 +24,9 @@ export const Item = styled.li({
   height: "inherit",
 
   "> * ": {
-    color: (props) => props.theme.colorMenu,
+    color: colorMenu,
   },
-});
+}));
 
 export const Link = styled(NavLink)({
   display: "flex",

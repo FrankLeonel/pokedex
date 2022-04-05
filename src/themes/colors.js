@@ -77,12 +77,3 @@ export const colorsPokemon = {
   color_water_type_dark: "#76befe",
   color_water_type_light: "#8fd1fd",
 };
-
-export const colors = {
-  blue,
-  green,
-  red,
-  yellow,
-  neutral,
-  colorsPokemon,
-};

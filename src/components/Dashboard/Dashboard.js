@@ -1,4 +1,4 @@
-import { PrimaryButton } from "components/Buttons/Buttons.style";
+import Button from "components/Button";
 import Header from "components/Header";
 import PokemonCard from "components/PokemonCard";
 import { usePokemon } from "contexts/PokemonContext";
@@ -58,9 +58,9 @@ const Dashboard = () => {
         <div>
           {!loading && hasMorePokemon && (
             <S.ContainerMorePokemon>
-              <PrimaryButton type="button" onClick={handleGetMorePokemon}>
+              <Button type="button" onClick={handleGetMorePokemon}>
                 Load more Pokémon
-              </PrimaryButton>
+              </Button>
             </S.ContainerMorePokemon>
           )}
 
