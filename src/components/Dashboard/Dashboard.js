@@ -1,3 +1,4 @@
+import BackTop from "components/BackTop";
 import Button from "components/Button";
 import Header from "components/Header";
 import PokemonCard from "components/PokemonCard";
@@ -70,6 +71,8 @@ const Dashboard = () => {
             </S.EmptyPokemonList>
           )}
         </div>
+
+        <BackTop />
       </S.ContainerContents>
     </>
   );

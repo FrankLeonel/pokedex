@@ -1,3 +1,4 @@
+import BackTop from "components/BackTop";
 import Header from "components/Header";
 import { usePokemon } from "contexts/PokemonContext";
 import { useCallback, useEffect, useState } from "react";
@@ -43,6 +44,8 @@ const DetailsPage = () => {
     <>
       <Header />
       <h1>Details Page</h1>
+
+      <BackTop />
     </>
   );
 };
