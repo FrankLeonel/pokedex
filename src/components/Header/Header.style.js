@@ -1,6 +1,4 @@
 import { ReactComponent as Pokemon } from "assets/icons/logo-white.svg";
-import { BsMoonFill, BsSunFill } from "react-icons/bs";
-import Switch from "react-switch";
 import styled from "styled-components";
 import hexToRgba from "utils/hexToRgba";
 
@@ -85,30 +83,4 @@ export const ContainerOptions = styled.div(({ theme }) => ({
   alignItems: "center",
   justifyContent: "flex-end",
   height: "100%",
-}));
-
-export const SwitchTheme = styled(Switch)(({ theme: { breakpoints } }) => ({
-  marginRight: 0,
-
-  [breakpoints.md]: {
-    marginRight: "8px",
-  },
-}));
-
-export const IconMoon = styled(BsMoonFill)(({ theme: { generalColors } }) => ({
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  height: "100%",
-  margin: "0 8px",
-  color: generalColors.white,
-}));
-
-export const IconSun = styled(BsSunFill)(({ theme: { generalColors } }) => ({
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  height: "100%",
-  color: generalColors.white,
-  margin: "0 8px",
 }));

@@ -1,8 +1,10 @@
+import BackTop from "components/BackTop";
 import Content from "components/Content";
 import { usePokemon } from "contexts/PokemonContext";
 import { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import * as S from "./Details.style";
+import HeaderDetail from "./HeaderDetail";
 
 const Details = () => {
   const params = useParams();
@@ -57,12 +59,14 @@ const Details = () => {
 
   return (
     <S.DetailsContainer>
+      <HeaderDetail type={pokemon?.types[0].type.name} />
       <Content>
         {!pokemon && (
           <S.LoadingContainer>
             <S.Loader />
           </S.LoadingContainer>
         )}
+        <BackTop />
       </Content>
     </S.DetailsContainer>
   );

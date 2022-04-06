@@ -17,8 +17,8 @@ export const Item = styled.li(({ theme: { colorMenu } }) => ({
   position: "relative",
   flexDirection: "column",
   alignItems: "center",
-  minWidth: "130px",
-  width: "130px",
+  minWidth: "146px",
+  width: "146px",
   height: "inherit",
 
   "> * ": {
