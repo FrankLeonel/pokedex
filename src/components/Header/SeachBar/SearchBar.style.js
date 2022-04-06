@@ -1,3 +1,4 @@
+import { FaSearch } from "react-icons/fa";
 import styled from "styled-components";
 
 export const Form = styled.form(
@@ -12,7 +13,7 @@ export const Form = styled.form(
     },
 
     input: {
-      padding: "10px 20px",
+      padding: "0 20px",
       fontSize: "17px",
       border: "1px solid white",
       borderRight: "none",
@@ -29,9 +30,8 @@ export const Form = styled.form(
     button: {
       float: "left",
       width: "12%",
-      padding: "11px",
+      padding: "8px",
       color: "white",
-      fontSize: "17px",
       border: "1px solid white",
       borderLeft: "none",
       borderRadius: "0 20px 20px 0",
@@ -52,3 +52,13 @@ export const Form = styled.form(
     },
   })
 );
+
+export const SearchIcon = styled(FaSearch)(({ theme }) => ({
+  width: "100%",
+  heigth: "100%",
+
+  [theme.breakpoints.md]: {
+    width: "100%",
+    heigth: "100%",
+  },
+}));
