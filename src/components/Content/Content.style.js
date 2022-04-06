@@ -4,10 +4,10 @@ export const ContentContainer = styled.div(({ theme: { breakpoints } }) => ({
   margin: "auto",
   maxWidth: "calc(1440px + 48px)",
   width: "100%",
-  padding: "0 12px 0 4px",
+  padding: "10px",
 
   [breakpoints.md]: {
-    padding: "10px",
+    padding: "0 20px",
     maxWidth: "calc(1440px + 128px)",
   },
 }));

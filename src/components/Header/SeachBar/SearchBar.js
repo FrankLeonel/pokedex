@@ -2,7 +2,6 @@ import { endpoints } from "config/endpoints";
 import { usePokemon } from "contexts/PokemonContext";
 import useSearch from "hooks/useSearch";
 import { useCallback } from "react";
-import { FaSearch } from "react-icons/fa";
 import * as S from "./SearchBar.style";
 
 const SearchBar = () => {
@@ -38,9 +37,7 @@ const SearchBar = () => {
         disabled={loading}
       />
       <button type="submit" disabled={loading}>
-        <FaSearch
-          style={{ marginRight: "5px", transform: "translateY(2px)" }}
-        />
+        <S.SearchIcon />
       </button>
     </S.Form>
   );

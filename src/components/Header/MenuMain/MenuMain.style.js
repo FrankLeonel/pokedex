@@ -5,11 +5,10 @@ export const Items = styled.ul(({ theme: { breakpoints } }) => ({
   display: "none",
 
   [breakpoints.md]: {
-    display: "inline-flex",
-    margin: `auto 28px`,
+    display: "flex",
+    margin: "auto 28px",
     listStyle: "none",
     alignItems: "center",
-    height: "100%",
   },
 }));
 
@@ -18,8 +17,7 @@ export const Item = styled.li(({ theme: { colorMenu } }) => ({
   position: "relative",
   flexDirection: "column",
   alignItems: "center",
-  textAlign: "center",
-  justifyContent: "center",
+  minWidth: "130px",
   width: "130px",
   height: "inherit",
 
@@ -28,11 +26,9 @@ export const Item = styled.li(({ theme: { colorMenu } }) => ({
   },
 }));
 
-export const Link = styled(NavLink)({
+export const Link = styled(NavLink)(({ theme }) => ({
   display: "flex",
   cursor: "pointer",
-  textAlign: "center",
-  alignItems: "center",
   overflow: "hidden",
   textDecoration: "none",
   boxSizing: "border-box",
@@ -41,7 +37,7 @@ export const Link = styled(NavLink)({
     "+ hr": {
       position: "absolute",
       margin: "auto 0",
-      top: 36,
+      top: 38,
       height: "3px",
     },
   },
@@ -51,4 +47,4 @@ export const Link = styled(NavLink)({
       display: "none",
     },
   },
-});
+}));

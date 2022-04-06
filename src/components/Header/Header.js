@@ -41,35 +41,37 @@ const Header = () => {
 
   return (
     <S.Header>
-      <Content>
-        <S.Section>
-          <S.Wrapper>
-            <S.MenuBurger onClick={onToggleMenu}>
-              <MenuIcon />
-            </S.MenuBurger>
-            <Link to="/">
-              <S.Logo />
-            </Link>
-            <MenuMain items={menuItems} />
-          </S.Wrapper>
+      <S.Container>
+        <Content>
+          <S.Section>
+            <S.Wrapper>
+              <S.MenuBurger onClick={onToggleMenu}>
+                <MenuIcon />
+              </S.MenuBurger>
+              <Link to="/">
+                <S.Logo />
+              </Link>
+              <MenuMain items={menuItems} />
+            </S.Wrapper>
 
-          <S.ContainerOptions>
-            <S.SwitchTheme
-              onChange={toggleTheme}
-              checked={theme === "dark"}
-              checkedIcon={<S.IconMoon size={20} />}
-              uncheckedIcon={<S.IconSun size={20} />}
-              height={28}
-              width={56}
-              handleDiameter={22}
-              offColor={usedTheme.switchColor}
-              onColor={usedTheme.switchColor}
-            />
+            <S.ContainerOptions>
+              <S.SwitchTheme
+                onChange={toggleTheme}
+                checked={theme === "dark"}
+                checkedIcon={<S.IconMoon size={20} />}
+                uncheckedIcon={<S.IconSun size={20} />}
+                height={28}
+                width={56}
+                handleDiameter={22}
+                offColor={usedTheme.switchColor}
+                onColor={usedTheme.switchColor}
+              />
 
-            {width >= 768 ? <SeachBar /> : null}
-          </S.ContainerOptions>
-        </S.Section>
-      </Content>
+              {width >= 768 ? <SeachBar /> : null}
+            </S.ContainerOptions>
+          </S.Section>
+        </Content>
+      </S.Container>
       {width < 768 ? <SeachBar /> : null}
       <Drawer show={showMenu} items={menuItems} onClose={onToggleMenu} />
     </S.Header>

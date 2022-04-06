@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const BackTop = styled.button(
-  ({ theme: { primaryColor, generalColors }, visible }) => ({
+  ({ theme: { primaryColor, generalColors } }) => ({
     textDecoration: "none",
-    padding: "10px 12px",
+    padding: "10px",
     color: generalColors.white,
     backgroundColor: primaryColor,
     border: "none",
