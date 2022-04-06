@@ -6,16 +6,15 @@ import hexToRgba from "utils/hexToRgba";
 
 export const Header = styled.div(
   ({ theme: { breakpoints, headerBackground } }) => ({
-    position: "sticky",
+    position: "fixed",
     top: 0,
     left: 0,
-    zIndex: 1,
+    zIndex: 99,
     width: "100%",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     height: "auto",
-
     backgroundColor: headerBackground,
 
     [breakpoints.md]: {

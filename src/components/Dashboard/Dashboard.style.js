@@ -1,8 +1,12 @@
 import pokeball from "assets/icons/pokeball.svg";
 import styled from "styled-components";
 
-export const ContainerContents = styled.div(({ theme }) => ({
-  margin: "30px 0",
+export const ContainerContents = styled.div(({ theme: { breakpoints } }) => ({
+  margin: "140px 0 30px",
+
+  [breakpoints.md]: {
+    margin: "90px 0 30px",
+  },
 }));
 
 export const PokemonGrid = styled.ul(({ theme }) => ({

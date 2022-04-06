@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Form = styled.form(
   ({ theme: { breakpoints, formColor, primaryColor, primaryHoverColor } }) => ({
-    padding: "10px 0",
+    margin: "10px 0",
     width: "100%",
     display: "flex",
     justifyContent: "center",
