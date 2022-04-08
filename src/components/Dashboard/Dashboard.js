@@ -73,10 +73,9 @@ const Dashboard = () => {
               </S.EmptyPokemonList>
             )}
           </div>
-
-          <BackTop />
         </S.ContainerContents>
       </Content>
+      <BackTop />
     </>
   );
 };

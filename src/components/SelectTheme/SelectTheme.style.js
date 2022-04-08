@@ -3,11 +3,7 @@ import Switch from "react-switch";
 import styled from "styled-components";
 
 export const SwitchTheme = styled(Switch)(({ theme: { breakpoints } }) => ({
-  marginRight: 0,
-
-  [breakpoints.md]: {
-    marginRight: "8px",
-  },
+  margin: 0,
 }));
 
 export const IconMoon = styled(BsMoonFill)(({ theme: { generalColors } }) => ({

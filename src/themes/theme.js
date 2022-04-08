@@ -1,16 +1,18 @@
 import breakpoints from "./breakpoints";
 import { colorsPokemon, neutral, red, yellow } from "./colors";
-import { primaryFont, typeScale } from "./typography";
+import { primaryFont } from "./typography";
 
 export const lightTheme = {
   breakpoints,
   colorsPokemon,
-  typeScale,
   background: neutral[100],
   backgroundMenu: neutral[100],
   backgroundMenuInverted: neutral[700],
   colorMenu: neutral[700],
   colorMenuInverted: neutral[100],
+  backgroundSelect: neutral[700],
+  backgroundOption: neutral[600],
+  colorOption: neutral[100],
   logo: neutral[800],
   headerBackground: neutral[100],
   switchColor: neutral[700],
@@ -37,12 +39,14 @@ export const lightTheme = {
 export const darkTheme = {
   breakpoints,
   colorsPokemon,
-  typeScale,
   background: neutral[800],
   backgroundMenu: neutral[700],
   backgroundMenuInverted: neutral[100],
   colorMenu: neutral[100],
   colorMenuInverted: neutral[700],
+  backgroundSelect: neutral[500],
+  backgroundOption: neutral[400],
+  colorOption: neutral[800],
   logo: neutral[100],
   headerBackground: neutral[700],
   switchColor: neutral[600],

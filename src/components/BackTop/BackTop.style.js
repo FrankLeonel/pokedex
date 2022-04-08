@@ -12,7 +12,7 @@ export const BackTop = styled.button(
     boxShadow: `3px 3px 10px ${primaryColor}`,
     zIndex: 1,
     outline: "none",
-    right: "10px",
-    bottom: "20px",
+    right: 20,
+    bottom: 20,
   })
 );

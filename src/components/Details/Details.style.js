@@ -29,3 +29,31 @@ export const Loader = styled.div(({ theme }) => ({
     },
   },
 }));
+
+export const ContainerInfos = styled.div(({ theme: { breakpoints } }) => ({
+  display: "flex",
+  flexDirection: "column",
+  gap: "20px",
+  padding: "30px 0",
+
+  "> div": {
+    display: "flex",
+    flexDirection: "column",
+    gap: "20px",
+    "> *": {
+      flexGrow: 1,
+      flexBasis: "100%",
+    },
+  },
+
+  [breakpoints.md]: {
+    "> div": {
+      display: "flex",
+      flexDirection: "row",
+      gap: "10px",
+      "> *": {
+        flexBasis: "50%",
+      },
+    },
+  },
+}));
