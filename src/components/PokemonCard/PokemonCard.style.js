@@ -1,4 +1,3 @@
-import imgPokeball from "assets/icons/pokeball.svg";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
@@ -27,10 +26,6 @@ export const Container = styled.li(
     padding: "25px 10px 30px 20px",
     listStyleType: "none",
     boxShadow: `0px 0px 15px -5px ${hexToRgba(shadow)}`,
-    backgroundImage: `url(${imgPokeball})`,
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "45%",
-    backgroundPosition: "bottom right",
     transition: "0.5s",
     backgroundColor: colorsPokemon[`color_${type}_type_dark`],
     backgroundBlendMode: "soft-light",
@@ -58,13 +53,13 @@ const verifyNameLenght = ({ nameLength }) => {
 };
 
 export const HeaderCard = styled.header(
-  ({ theme: { generalColors, typeScale }, nameLength }) => ({
+  ({ theme: { generalColors }, nameLength }) => ({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
     color: generalColors.white,
     fontWeight: "bolder",
-    fontSize: typeScale.header3,
+    fontSize: "1.17em",
     marginBottom: "15px",
     h3: {
       transform: "translateY(5px)",

@@ -54,18 +54,15 @@ export const Loader = styled.div(({ theme }) => ({
   },
 }));
 
-export const EmptyPokemonList = styled.form(
-  ({ theme: { typeScale, textWarning } }) => ({
-    width: "100%",
-    border: "2px solid",
-    borderColor: textWarning,
-    borderRadius: "20px",
-    padding: "10px",
-    h3: {
-      fontSize: typeScale.header3,
-      color: textWarning,
-      fontWeight: "normal",
-      textAlign: "center",
-    },
-  })
-);
+export const EmptyPokemonList = styled.form(({ theme: { textWarning } }) => ({
+  width: "100%",
+  border: "2px solid",
+  borderColor: textWarning,
+  borderRadius: "20px",
+  padding: "10px",
+  h3: {
+    color: textWarning,
+    fontWeight: "normal",
+    textAlign: "center",
+  },
+}));

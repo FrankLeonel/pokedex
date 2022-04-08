@@ -10,6 +10,7 @@ export const Form = styled.form(
 
     [breakpoints.md]: {
       margin: 0,
+      marginLeft: "8px",
     },
 
     input: {

@@ -1,8 +1,11 @@
+import BackTop from "components/BackTop";
 import Content from "components/Content";
+import PokemonVarieties from "components/PokemonVarieties";
 import { usePokemon } from "contexts/PokemonContext";
 import { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import * as S from "./Details.style";
+import HeaderDetail from "./HeaderDetail";
 
 const Details = () => {
   const params = useParams();
@@ -56,15 +59,40 @@ const Details = () => {
   }, [pokemon, getPokemonWeaknessesAndResistances]);
 
   return (
-    <S.DetailsContainer>
-      <Content>
-        {!pokemon && (
-          <S.LoadingContainer>
-            <S.Loader />
-          </S.LoadingContainer>
-        )}
-      </Content>
-    </S.DetailsContainer>
+    <>
+      {!pokemon && (
+        <S.LoadingContainer>
+          <S.Loader />
+        </S.LoadingContainer>
+      )}
+      {pokemon && (
+        <>
+          <S.DetailsContainer>
+            <HeaderDetail
+              pokemon={pokemon}
+              idVariantyDefault={idVariantyDefault}
+            />
+            <Content>
+              <S.ContainerInfos>
+                {pokemonVarieties.length > 1 && (
+                  <PokemonVarieties
+                    varieties={pokemonVarieties}
+                    selected={pokemon.name}
+                  />
+                )}
+                <div>
+                  <div>About</div>
+                  <div>Stat</div>
+                </div>
+
+                <div>Evolution</div>
+              </S.ContainerInfos>
+            </Content>
+          </S.DetailsContainer>
+          <BackTop />
+        </>
+      )}
+    </>
   );
 };
 
