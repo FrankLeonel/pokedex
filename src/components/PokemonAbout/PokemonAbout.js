@@ -1,5 +1,6 @@
 import ContainerPokemon from "components/ContainerPokemon";
 import DataText from "components/DataText";
+import PokemonType from "components/PokemonType";
 import { useCallback } from "react";
 import { capitalizeHelper } from "utils/capitalize";
 import * as S from "./PokemonAbout.style";
@@ -16,6 +17,7 @@ const PokemonAbout = ({
   shape,
 }) => {
   const capitalize = useCallback(capitalizeHelper, []);
+
   return (
     <ContainerPokemon>
       <S.PokemonAboutContainer>
@@ -37,6 +39,20 @@ const PokemonAbout = ({
               capitalize(ability.ability.name).replace("-", " ")
             )
             .join(", ")}
+        </DataText>
+        <DataText title="Weaknesses">
+          <ul>
+            {weaknesses?.map((weakness) => (
+              <PokemonType key={weakness} type={weakness} />
+            ))}
+          </ul>
+        </DataText>
+        <DataText title="Resistances">
+          <ul>
+            {resistances?.map((resistance) => (
+              <PokemonType key={resistance} type={resistance} />
+            ))}
+          </ul>
         </DataText>
       </S.PokemonAboutContainer>
     </ContainerPokemon>
