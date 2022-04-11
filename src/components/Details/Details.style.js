@@ -50,7 +50,6 @@ export const ContainerInfos = styled.div(({ theme: { breakpoints } }) => ({
     "> div": {
       display: "flex",
       flexDirection: "row",
-      gap: "10px",
       "> *": {
         flexBasis: "50%",
       },
