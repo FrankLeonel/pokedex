@@ -1,6 +1,7 @@
 import BackTop from "components/BackTop";
 import Content from "components/Content";
 import PokemonAbout from "components/PokemonAbout";
+import PokemonEvolution from "components/PokemonEvolution";
 import PokemonStats from "components/PokemonStats";
 import PokemonVarieties from "components/PokemonVarieties";
 import { usePokemon } from "contexts/PokemonContext";
@@ -62,7 +63,6 @@ const Details = () => {
 
   return (
     <>
-      {console.log(pokemon)}
       {!pokemon && (
         <S.LoadingContainer>
           <S.Loader />
@@ -106,7 +106,9 @@ const Details = () => {
                   />
                 </div>
 
-                <PokemonAbout />
+                {pokemonEvolutionChain && (
+                  <PokemonEvolution evolutionChain={pokemonEvolutionChain} />
+                )}
               </S.ContainerInfos>
             </Content>
           </S.DetailsContainer>
