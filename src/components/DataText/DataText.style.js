@@ -5,6 +5,7 @@ export const DataTextContainer = styled.div(({ theme }) => ({
   flexDirection: "row",
   gap: "16px",
   alignItems: "center",
+  width: "100%",
 }));
 
 export const ContainerTitle = styled.div(({ theme }) => ({
@@ -22,6 +23,7 @@ export const Description = styled.div(({ theme: { textColorInverted } }) => ({
   fontSize: "16px",
   fontWeight: 600,
   color: textColorInverted,
+  width: "100%",
 
   ul: {
     display: "flex",
