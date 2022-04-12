@@ -1,6 +1,7 @@
 import BackTop from "components/BackTop";
 import Content from "components/Content";
 import PokemonAbout from "components/PokemonAbout";
+import PokemonStats from "components/PokemonStats";
 import PokemonVarieties from "components/PokemonVarieties";
 import { usePokemon } from "contexts/PokemonContext";
 import { useCallback, useEffect, useState } from "react";
@@ -61,7 +62,7 @@ const Details = () => {
 
   return (
     <>
-      {console.log(pokemonSpecie)}
+      {console.log(pokemon)}
       {!pokemon && (
         <S.LoadingContainer>
           <S.Loader />
@@ -99,7 +100,10 @@ const Details = () => {
                     weaknesses={pokemonWeaknesses}
                     resistances={pokemonResistances}
                   />
-                  <PokemonAbout />
+                  <PokemonStats
+                    stats={pokemon.stats}
+                    type={pokemon?.types[0].type.name}
+                  />
                 </div>
 
                 <PokemonAbout />
