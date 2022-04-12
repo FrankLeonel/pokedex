@@ -29,6 +29,7 @@ export const lightTheme = {
   generalColors: {
     white: neutral[100],
     black: neutral[900],
+    grayLight: neutral[600],
     grayDark: neutral[700],
   },
   formColor: {
@@ -65,6 +66,7 @@ export const darkTheme = {
   generalColors: {
     white: neutral[100],
     black: neutral[900],
+    grayLight: neutral[600],
     grayDark: neutral[700],
   },
   formColor: {
