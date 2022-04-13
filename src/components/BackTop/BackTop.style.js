@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const BackTop = styled.button(
   ({ theme: { primaryColor, generalColors } }) => ({
     textDecoration: "none",
-    padding: "8px 10px",
+    padding: "9px 12px",
     color: generalColors.white,
     backgroundColor: primaryColor,
     border: "none",
