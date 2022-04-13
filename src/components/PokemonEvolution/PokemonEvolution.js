@@ -7,7 +7,6 @@ import * as S from "./PokemonEvolution.style";
 
 const PokemonEvolution = ({ evolutionChain }) => {
   const { getPokemonImage } = usePokemon();
-  const capitalize = useCallback(capitalizeHelper, []);
 
   const handleEvolves = useCallback(
     (evolutions) => {
@@ -23,7 +22,7 @@ const PokemonEvolution = ({ evolutionChain }) => {
                       alt={evolve.species.name}
                     />
                     <S.Name>
-                      <h3>{capitalize(evolve.species.name)}</h3>
+                      <h3>{capitalizeHelper(evolve.species.name)}</h3>
                       <span>
                         #{`000${evolve.species.url.slice(42, -1)}`.slice(-3)}
                       </span>
