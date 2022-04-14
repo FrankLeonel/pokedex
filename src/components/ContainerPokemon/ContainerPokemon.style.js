@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const ContainerPokemonContainer = styled.section(
   ({ theme: { generalColors, backgroundContainerPokemon, breakpoints } }) => ({
     backgroundColor: backgroundContainerPokemon,
+    transition: "background-color 1s ease",
     width: "100%",
     height: "auto",
     padding: "20px",

@@ -3,7 +3,7 @@ import { useCallback } from "react";
 import { capitalizeHelper } from "utils/capitalize";
 import * as S from "./PokemonCard.style";
 
-const PokemonCard = ({ pokemon, sprite }) => {
+const PokemonCard = ({ pokemon, sprite, isFavorite }) => {
   const capitalize = useCallback(capitalizeHelper, []);
 
   return (
@@ -21,6 +21,7 @@ const PokemonCard = ({ pokemon, sprite }) => {
           </ul>
           <div className="pokemon_image" />
         </S.Section>
+        {isFavorite ? <h1>Favorite</h1> : <h1>!Favorite</h1>}
       </S.Container>
     </S.LinkCard>
   );

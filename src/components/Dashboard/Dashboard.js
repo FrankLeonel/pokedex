@@ -46,17 +46,18 @@ const Dashboard = () => {
       <Header />
       <Content>
         <S.ContainerContents>
+          {loading && <S.Loader />}
+
           <S.PokemonGrid>
             {pokemonList.map((pokemon) => (
               <PokemonCard
                 key={pokemon.id}
                 pokemon={pokemon}
                 sprite={pokemon.sprites.other["official-artwork"].front_default}
+                isFavorite={pokemon.isFavorite}
               />
             ))}
           </S.PokemonGrid>
-
-          {loading && <S.Loader />}
 
           <div>
             {!loading && hasMorePokemon && (

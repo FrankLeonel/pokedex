@@ -1,4 +1,5 @@
 import BackTop from "components/BackTop";
+import Button from "components/Button";
 import Content from "components/Content";
 import PokemonAbout from "components/PokemonAbout";
 import PokemonEvolution from "components/PokemonEvolution";
@@ -18,6 +19,8 @@ const Details = () => {
     getWeaknessesAndResistances,
     getEvolutionChain,
     getIdVariantDefault,
+    addPokemon,
+    removePokemon,
   } = usePokemon();
 
   const [pokemon, setPokemon] = useState(null);
@@ -51,6 +54,14 @@ const Details = () => {
     }
   }, [pokemon, getWeaknessesAndResistances]);
 
+  const handleAddPokemonFavorites = (pokemon) => {
+    addPokemon(pokemon);
+  };
+
+  const handleRemovePokemonFavorites = (pokemon) => {
+    removePokemon(pokemon);
+  };
+
   useEffect(() => {
     setPokemon(null);
     window.scrollTo(0, 0);
@@ -61,6 +72,7 @@ const Details = () => {
     getPokemonWeaknessesAndResistances();
   }, [pokemon, getPokemonWeaknessesAndResistances]);
 
+  // console.log(pokemon);
   return (
     <>
       {!pokemon && (
@@ -108,6 +120,16 @@ const Details = () => {
 
                 {pokemonEvolutionChain && (
                   <PokemonEvolution evolutionChain={pokemonEvolutionChain} />
+                )}
+
+                {!pokemon.isFavorite ? (
+                  <Button onClick={() => handleAddPokemonFavorites(pokemon)}>
+                    Adicionar aos favoritos
+                  </Button>
+                ) : (
+                  <Button onClick={() => handleRemovePokemonFavorites(pokemon)}>
+                    Remover dos favoritos
+                  </Button>
                 )}
               </S.ContainerInfos>
             </Content>

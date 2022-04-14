@@ -15,6 +15,27 @@ const PokemonProvider = ({ children }) => {
   const [pokemonList, setPokemonList] = useState([]);
   const { search } = useSearch();
   const [loading, setLoading] = useState(!pokemonList.length);
+  const [pokemonsFavorite, setPokemonsFavorite] = useState([]);
+
+  const addPokemon = useCallback(
+    (pokemon) => {
+      const verifyPokemon = pokemonsFavorite.find(
+        (item) => item.name === pokemon.name
+      );
+      if (!verifyPokemon) setPokemonsFavorite([...pokemonsFavorite, pokemon]);
+    },
+    [pokemonsFavorite]
+  );
+
+  const removePokemon = useCallback(
+    (pokemon) => {
+      const pokemonsFavoriteFilter = pokemonsFavorite.filter(
+        (item) => item.name !== pokemon.name
+      );
+      setPokemonsFavorite(pokemonsFavoriteFilter);
+    },
+    [pokemonsFavorite]
+  );
 
   const getPokemon = useCallback(async (id) => {
     const { data: pokemonData } = await endpoints.getPokemon(id);
@@ -22,7 +43,10 @@ const PokemonProvider = ({ children }) => {
       pokemonData.species?.url.substring(26)
     );
 
-    return { pokemonTarget: pokemonData, pokemonSpecies: speciesData };
+    return {
+      pokemonTarget: { ...pokemonData, isFavorite: false },
+      pokemonSpecies: speciesData,
+    };
   }, []);
 
   const getEvolutionChain = useCallback(async (pokemonDetails) => {
@@ -155,6 +179,9 @@ const PokemonProvider = ({ children }) => {
         pokemonList,
         setPokemonList,
         getPokemon,
+        pokemonsFavorite,
+        addPokemon,
+        removePokemon,
         getEvolutionChain,
         getPokemonInterval,
         getPokemonSearch,

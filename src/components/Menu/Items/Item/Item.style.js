@@ -25,6 +25,7 @@ export const Link = styled(NavLink)(
     "&.active": {
       "+ hr": {
         backgroundColor: dividerColor,
+        transition: "background-color 1s ease",
         height: "2px",
       },
     },

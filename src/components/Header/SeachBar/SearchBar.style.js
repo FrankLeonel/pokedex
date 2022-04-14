@@ -21,6 +21,7 @@ export const Form = styled.form(
       float: "left",
       width: "78%",
       backgroundColor: formColor.formElementBackground,
+      transition: "background-color 1s ease",
       color: formColor.textOnFormElementBackground,
       borderRadius: "20px 0 0 20px",
 
@@ -37,7 +38,7 @@ export const Form = styled.form(
       borderLeft: "none",
       borderRadius: "0 20px 20px 0",
       backgroundColor: primaryColor,
-      transition: "background-color 0.2s",
+      transition: "background-color 1s ease",
 
       [breakpoints.md]: {
         width: "15%",

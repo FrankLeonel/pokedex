@@ -20,7 +20,7 @@ export const lightTheme = {
   backgroundContainerPokemon: neutral[100],
   shadow: neutral[700],
   primaryColor: neutral[700],
-  primaryHoverColor: neutral[800],
+  primaryHoverColor: neutral[600],
   textColorOnPrimary: neutral[300],
   textColor: neutral[600],
   textColorInverted: neutral[700],

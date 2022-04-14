@@ -14,6 +14,7 @@ export const Header = styled.div(
     alignItems: "center",
     height: "auto",
     backgroundColor: headerBackground,
+    transition: "background-color 1s ease",
 
     [breakpoints.md]: {
       display: "flex",
@@ -49,6 +50,7 @@ export const Wrapper = styled.section(({ theme }) => ({
 export const Logo = styled(Pokemon)(({ theme: { logo } }) => ({
   path: {
     fill: logo,
+    transition: "fill 1s ease",
   },
 }));
 
@@ -67,6 +69,7 @@ export const MenuBurger = styled.button(({ theme: { breakpoints, logo } }) => ({
     height: "fit-content",
     path: {
       fill: logo,
+      transition: "fill 1s ease",
     },
   },
 
