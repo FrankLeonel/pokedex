@@ -1,3 +1,4 @@
+import imgPokeball from "assets/icons/pokeball.svg";
 import Content from "components/Content";
 import PokemonType from "components/PokemonType";
 import SelectTheme from "components/SelectTheme";
@@ -5,13 +6,23 @@ import { useCallback } from "react";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { capitalizeHelper } from "utils/capitalize";
+import colorType from "utils/colorType";
 import * as S from "./HeaderDetail.style";
 
 const HeaderDetail = ({ pokemon, idVariantyDefault }) => {
   const capitalize = useCallback(capitalizeHelper, []);
 
+  const finalColor = colorType(
+    pokemon.types[0].type.name,
+    pokemon.types[1]?.type.name,
+    pokemon.types.length
+  );
+
   return (
-    <S.HeaderDetailContainer type={pokemon.types[0].type.name}>
+    <S.HeaderDetailContainer
+      type1={finalColor.color1}
+      type2={finalColor.color2}
+    >
       <Content>
         <S.Nav>
           <Link to="/" className="icon">
@@ -48,10 +59,14 @@ const HeaderDetail = ({ pokemon, idVariantyDefault }) => {
               <div />
             )}
             <S.ContainerImages>
-              <S.ImgPokemon
-                src={pokemon.sprites.other["official-artwork"].front_default}
-                alt="Arte Pokémon"
-              />
+              {pokemon.sprites.other["official-artwork"].front_default ? (
+                <S.ImgPokemon
+                  src={pokemon.sprites.other["official-artwork"].front_default}
+                  alt="Arte Pokémon"
+                />
+              ) : (
+                <S.ImgPokemon src={imgPokeball} alt="Arte Pokémon" />
+              )}
             </S.ContainerImages>
             {idVariantyDefault && idVariantyDefault < 898 ? (
               <Link className="icon" to={`/details/${idVariantyDefault + 1}`}>

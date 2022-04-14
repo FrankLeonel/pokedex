@@ -17,7 +17,6 @@ const PokemonAbout = ({
   shape,
 }) => {
   const capitalize = useCallback(capitalizeHelper, []);
-
   return (
     <ContainerPokemon>
       <S.PokemonAboutContainer>
@@ -47,13 +46,15 @@ const PokemonAbout = ({
             ))}
           </ul>
         </DataText>
-        <DataText title="Resistances">
-          <ul>
-            {resistances?.map((resistance) => (
-              <PokemonType key={resistance} type={resistance} />
-            ))}
-          </ul>
-        </DataText>
+        {resistances?.length > 0 ? (
+          <DataText title="Resistances">
+            <ul>
+              {resistances?.map((resistance) => (
+                <PokemonType key={resistance} type={resistance} />
+              ))}
+            </ul>
+          </DataText>
+        ) : null}
       </S.PokemonAboutContainer>
     </ContainerPokemon>
   );

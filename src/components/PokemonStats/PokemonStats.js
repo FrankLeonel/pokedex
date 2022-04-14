@@ -2,10 +2,17 @@ import ContainerPokemon from "components/ContainerPokemon";
 import DataText from "components/DataText";
 import { useCallback } from "react";
 import { capitalizeHelper } from "utils/capitalize";
+import colorType from "utils/colorType";
 import * as S from "./PokemonStats.style";
 
-const PokemonStats = ({ stats, type }) => {
+const PokemonStats = ({ stats, types }) => {
   const capitalize = useCallback(capitalizeHelper, []);
+
+  const finalColor = colorType(
+    types[0].type.name,
+    types[1]?.type.name,
+    types.length
+  );
 
   return (
     <ContainerPokemon>
@@ -18,7 +25,8 @@ const PokemonStats = ({ stats, type }) => {
               <S.ContainerStatBar>
                 <S.StatBar
                   percentage={(stat.base_stat / 250) * 100}
-                  type={type}
+                  type1={finalColor.color1}
+                  type2={finalColor.color2}
                 />
               </S.ContainerStatBar>
             </S.ContainerInfo>
@@ -35,7 +43,8 @@ const PokemonStats = ({ stats, type }) => {
                   (stats.reduce((acc, curr) => acc + curr.base_stat, 0) * 100) /
                   1500
                 }
-                type={type}
+                type1={finalColor.color1}
+                type2={finalColor.color2}
               />
             </S.ContainerStatBar>
           </S.ContainerInfo>

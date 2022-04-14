@@ -1,12 +1,6 @@
 import { FaChevronRight } from "react-icons/fa";
 import styled from "styled-components";
 
-export const PokemonEvolutionContainer = styled.div(({ theme }) => ({
-  display: "flex",
-  flexDirection: "column",
-  gap: "20px",
-}));
-
 export const Title = styled.h2(({ theme: { textColor } }) => ({
   color: textColor,
 }));
@@ -18,8 +12,57 @@ export const EvoluationsWrap = styled.div(({ theme: { breakpoints } }) => ({
   alignItems: "center",
   marginTop: "20px",
 
-  [breakpoints.md]: {
+  [breakpoints.lg]: {
     flexDirection: "row",
+  },
+}));
+
+export const Stage = styled.div(({ theme: { breakpoints } }) => ({
+  alignSelf: "center",
+  display: "grid",
+  gap: "10px",
+
+  "&.firstStage": {
+    display: "inline",
+  },
+
+  "&.evolves1": {
+    gridTemplateRows: "repeat(1, 1fr)",
+    gridTemplateColumns: "repeat(1, 1fr)",
+  },
+
+  "&.evolves2": {
+    gridTemplateRows: "repeat(2, 1fr)",
+    gridTemplateColumns: "repeat(1, 1fr)",
+  },
+
+  "&.evolves3": {
+    gridTemplateRows: "repeat(2, 1fr)",
+    gridTemplateColumns: "repeat(2, 1fr)",
+  },
+
+  "&.evolves8": {
+    gridTemplateRows: "repeat(4, 1fr)",
+    gridTemplateColumns: "repeat(2, 1fr)",
+  },
+
+  [breakpoints.md]: {
+    "&.evolves2": {
+      gridTemplateRows: "repeat(1, 1fr)",
+      gridTemplateColumns: "repeat(2, 1fr)",
+    },
+
+    "&.evolves3": {
+      gridTemplateRows: "repeat(1, 1fr)",
+      gridTemplateColumns: "repeat(3, 1fr)",
+    },
+  },
+
+  [breakpoints.xl]: {
+    "&.evolves8": {
+      gridTemplateRows: "repeat(2, 1fr)",
+      gridTemplateColumns: "repeat(4, 1fr)",
+    },
   },
 }));
 
@@ -30,9 +73,9 @@ export const ChevronRight = styled(FaChevronRight)(
     transform: "rotate(90deg)",
     marginTop: "20px",
 
-    [breakpoints.md]: {
-      transform: "rotate(0)",
+    [breakpoints.lg]: {
       alignSelf: "center",
+      transform: "rotate(0)",
     },
   })
 );
@@ -46,13 +89,6 @@ export const Evolution = styled.div(({ theme }) => ({
   "&:hover": {
     transform: "translate(0, -10px)",
     cursor: "pointer",
-  },
-
-  img: {
-    width: "200px",
-    "@media (max-width: 850px)": {
-      width: "55%",
-    },
   },
 }));
 

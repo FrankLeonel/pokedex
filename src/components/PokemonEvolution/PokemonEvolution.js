@@ -1,4 +1,3 @@
-import ContainerPokemon from "components/ContainerPokemon";
 import { usePokemon } from "contexts/PokemonContext";
 import { useCallback } from "react";
 import { Link } from "react-router-dom";
@@ -9,13 +8,16 @@ const PokemonEvolution = ({ evolutionChain }) => {
   const { getPokemonImage } = usePokemon();
 
   const handleEvolves = useCallback(
-    (evolutions) => {
-      if (evolutions.length) {
+    (chains) => {
+      if (chains.length) {
         return (
           <>
-            {evolutions.map((evolve) => (
-              <div key={evolve.species.name}>
-                <Link to={`/details/${evolve.species.url.slice(42, -1)}`}>
+            <S.Stage className={`evolves${chains.length}`}>
+              {chains.map((evolve) => (
+                <Link
+                  to={`/details/${evolve.species.url.slice(42, -1)}`}
+                  key={evolve.species.name}
+                >
                   <S.Evolution>
                     <S.Image
                       src={getPokemonImage(evolve.species.url.slice(42, -1))}
@@ -29,14 +31,10 @@ const PokemonEvolution = ({ evolutionChain }) => {
                     </S.Name>
                   </S.Evolution>
                 </Link>
-              </div>
-            ))}
-            {!!evolutions[0].evolves_to.length && <S.ChevronRight />}
-            {evolutions.map((evolve) => (
-              <div key={evolve.species.name}>
-                {handleEvolves(evolve.evolves_to)}
-              </div>
-            ))}
+              ))}
+            </S.Stage>
+            {!!chains[0].evolves_to.length && <S.ChevronRight />}
+            {chains.map((evolve) => handleEvolves(evolve.evolves_to))}
           </>
         );
       }
@@ -48,27 +46,31 @@ const PokemonEvolution = ({ evolutionChain }) => {
   const handleFirstStage = useCallback(
     (chain) => {
       return (
-        <ContainerPokemon>
+        // <ContainerPokemon>
+        <>
           <S.Title>Evolution</S.Title>
           <S.EvoluationsWrap>
-            <Link to={`/details/${chain.species.url.slice(42, -1)}`}>
-              <S.Evolution>
-                <img
-                  src={getPokemonImage(chain.species.url.slice(42, -1))}
-                  alt={chain.species.name}
-                />
-                <S.Name>
-                  <h3>{capitalizeHelper(chain.species.name)}</h3>
-                  <span>
-                    #{`000${chain.species.url.slice(42, -1)}`.slice(-3)}
-                  </span>
-                </S.Name>
-              </S.Evolution>
-            </Link>
+            <S.Stage className="firstStage">
+              <Link to={`/details/${chain.species.url.slice(42, -1)}`}>
+                <S.Evolution>
+                  <S.Image
+                    src={getPokemonImage(chain.species.url.slice(42, -1))}
+                    alt={chain.species.name}
+                  />
+                  <S.Name>
+                    <h3>{capitalizeHelper(chain.species.name)}</h3>
+                    <span>
+                      #{`000${chain.species.url.slice(42, -1)}`.slice(-3)}
+                    </span>
+                  </S.Name>
+                </S.Evolution>
+              </Link>
+            </S.Stage>
             {!!chain.evolves_to.length && <S.ChevronRight />}
             {handleEvolves(chain.evolves_to)}
           </S.EvoluationsWrap>
-        </ContainerPokemon>
+        </>
+        // </ContainerPokemon>
       );
     },
     [handleEvolves, getPokemonImage]

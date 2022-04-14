@@ -24,15 +24,17 @@ export const BaseStat = styled.div(({ theme }) => ({
 export const ContainerStatBar = styled.div(({ theme }) => ({
   width: "100%",
   borderRadius: "10px",
-  backgroundColor: " #e3e3e3",
+  backgroundColor: "#e3e3e3",
 }));
 
 export const StatBar = styled.div(
-  ({ theme: { colorsPokemon }, type, percentage }) => ({
+  ({ theme: { colorsPokemon }, type1, type2, percentage }) => ({
     borderRadius: "10px",
-    backgroundColor: colorsPokemon[`color_${type}_type_dark`],
+
+    background: `linear-gradient(${
+      colorsPokemon[`color_${type1}_type_dark`]
+    }, ${colorsPokemon[`color_${type2}_type_dark`]})`,
     width: `${percentage}%`,
     height: "100%",
-    color: colorsPokemon[`color_${type}_type_dark`],
   })
 );

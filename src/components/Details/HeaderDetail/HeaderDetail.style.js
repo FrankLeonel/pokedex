@@ -3,8 +3,10 @@ import styled from "styled-components";
 import hexToRgba from "utils/hexToRgba";
 
 export const HeaderDetailContainer = styled.div(
-  ({ theme: { colorsPokemon, generalColors }, type }) => ({
-    backgroundColor: colorsPokemon[`color_${type}_type_dark`],
+  ({ theme: { colorsPokemon, generalColors }, type1, type2 }) => ({
+    background: `linear-gradient(${
+      colorsPokemon[`color_${type1}_type_dark`]
+    }, ${colorsPokemon[`color_${type2}_type_dark`]})`,
     width: "100%",
     heigth: "auto",
 

@@ -19,7 +19,7 @@ export const IconNoFavorite = styled(FaRegHeart)(({ theme }) => ({}));
 export const IconFavorite = styled(FaHeart)(({ theme }) => ({}));
 
 export const Container = styled.li(
-  ({ theme: { colorsPokemon, shadow }, type }) => ({
+  ({ theme: { colorsPokemon, shadow }, type1, type2 }) => ({
     width: "100%",
     height: "205px",
     borderRadius: "30px",
@@ -27,7 +27,9 @@ export const Container = styled.li(
     listStyleType: "none",
     boxShadow: `0px 0px 15px -5px ${hexToRgba(shadow)}`,
     transition: "0.5s",
-    backgroundColor: colorsPokemon[`color_${type}_type_dark`],
+    background: `linear-gradient(${
+      colorsPokemon[`color_${type1}_type_dark`]
+    }, ${colorsPokemon[`color_${type2}_type_dark`]})`,
     backgroundBlendMode: "soft-light",
     "&:hover": {
       transform: "translate(0, -10px)",

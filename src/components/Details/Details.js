@@ -112,10 +112,7 @@ const Details = () => {
                     weaknesses={pokemonWeaknesses}
                     resistances={pokemonResistances}
                   />
-                  <PokemonStats
-                    stats={pokemon.stats}
-                    type={pokemon?.types[0].type.name}
-                  />
+                  <PokemonStats stats={pokemon.stats} types={pokemon?.types} />
                 </div>
 
                 {pokemonEvolutionChain && (
