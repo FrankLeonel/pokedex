@@ -87,3 +87,19 @@ export const ContainerOptions = styled.div(({ theme }) => ({
   justifyContent: "flex-end",
   height: "100%",
 }));
+
+export const FilterButton = styled.button(({ theme: { logo } }) => ({
+  padding: 0,
+  marginLeft: "8px",
+  backgroundColor: "transparent",
+  border: "none",
+
+  svg: {
+    width: "fit-content",
+    height: "fit-content",
+    path: {
+      fill: logo,
+      transition: "fill 1s ease",
+    },
+  },
+}));

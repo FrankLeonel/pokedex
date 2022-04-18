@@ -1,3 +1,4 @@
+import ContainerPokemon from "components/ContainerPokemon";
 import { usePokemon } from "contexts/PokemonContext";
 import { useCallback } from "react";
 import { Link } from "react-router-dom";
@@ -46,8 +47,7 @@ const PokemonEvolution = ({ evolutionChain }) => {
   const handleFirstStage = useCallback(
     (chain) => {
       return (
-        // <ContainerPokemon>
-        <>
+        <ContainerPokemon>
           <S.Title>Evolution</S.Title>
           <S.EvoluationsWrap>
             <S.Stage className="firstStage">
@@ -69,8 +69,7 @@ const PokemonEvolution = ({ evolutionChain }) => {
             {!!chain.evolves_to.length && <S.ChevronRight />}
             {handleEvolves(chain.evolves_to)}
           </S.EvoluationsWrap>
-        </>
-        // </ContainerPokemon>
+        </ContainerPokemon>
       );
     },
     [handleEvolves, getPokemonImage]

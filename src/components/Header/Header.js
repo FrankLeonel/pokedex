@@ -1,3 +1,4 @@
+import { ReactComponent as FilterIcon } from "assets/icons/filter-icon.svg";
 import { ReactComponent as MenuIcon } from "assets/icons/menu-icon.svg";
 import Content from "components/Content";
 import Drawer from "components/Drawer";
@@ -46,6 +47,12 @@ const Header = () => {
               <SelectTheme />
 
               {width >= 768 ? <SeachBar /> : null}
+
+              {width >= 768 ? (
+                <S.FilterButton>
+                  <FilterIcon />
+                </S.FilterButton>
+              ) : null}
             </S.ContainerOptions>
           </S.Section>
         </Content>
