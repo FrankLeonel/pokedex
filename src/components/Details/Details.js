@@ -20,6 +20,7 @@ const Details = () => {
     getEvolutionChain,
     getIdVariantDefault,
     addPokemon,
+    addFavorite,
     removePokemon,
   } = usePokemon();
 
@@ -55,7 +56,8 @@ const Details = () => {
   }, [pokemon, getWeaknessesAndResistances]);
 
   const handleAddPokemonFavorites = (pokemon) => {
-    addPokemon(pokemon);
+    // addPokemon(pokemon);
+    addFavorite(pokemon);
   };
 
   const handleRemovePokemonFavorites = (pokemon) => {

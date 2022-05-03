@@ -1,5 +1,13 @@
 import styled from "styled-components";
 
+export const ContainerFavorite = styled.div(({ theme: { breakpoints } }) => ({
+  margin: "140px 0 30px",
+
+  [breakpoints.md]: {
+    margin: "90px 0 30px",
+  },
+}));
+
 export const PokemonGrid = styled.ul(({ theme }) => ({
   display: "grid",
   gridTemplateColumns: "repeat(1, 1fr)",
