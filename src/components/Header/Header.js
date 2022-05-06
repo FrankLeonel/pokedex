@@ -19,12 +19,12 @@ const Header = () => {
   const [showMenu, onToggleMenu] = useToggle();
   const menuItems = [
     {
-      label: "Página inicial",
+      label: "Home",
       path: "/",
     },
     {
-      label: "Favoritos",
-      path: "/favoritos",
+      label: "Favorites",
+      path: "/favorites",
     },
   ];
 

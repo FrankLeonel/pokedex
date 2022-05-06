@@ -1,3 +1,4 @@
+import { BsStar, BsStarFill } from "react-icons/bs";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import styled from "styled-components";
 import hexToRgba from "utils/hexToRgba";
@@ -29,6 +30,53 @@ export const Nav = styled.div(({ theme }) => ({
   display: "flex",
   flexDirection: "row",
   justifyContent: "space-between",
+}));
+
+export const ContainerRight = styled.div(({ theme }) => ({
+  display: "flex",
+  minWidth: "190px",
+  width: "180px",
+  justifyContent: "space-between",
+  alignItems: "center",
+}));
+
+export const FavoriteView = styled.div(({ theme: { generalColors } }) => ({
+  display: "flex",
+  flexDirection: "row",
+  alignItems: "center",
+  cursor: "pointer",
+
+  p: {
+    fontSize: "20px",
+    color: generalColors.white,
+    fontWeight: 800,
+  },
+}));
+
+export const IconNoFavorite = styled(BsStar)(
+  ({ theme: { generalColors } }) => ({
+    fontSize: "25px",
+    marginRight: "10px",
+    path: {
+      fill: generalColors.white,
+    },
+  })
+);
+
+export const IconFavorite = styled(BsStarFill)(
+  ({ theme: { generalColors } }) => ({
+    fontSize: "25px",
+    marginRight: "10px",
+    path: {
+      fill: generalColors.white,
+    },
+  })
+);
+
+export const Button = styled.button(({ theme: { primaryColor } }) => ({
+  border: "none",
+  backgroundColor: "transparent",
+  color: primaryColor,
 }));
 
 export const Container = styled.div(
