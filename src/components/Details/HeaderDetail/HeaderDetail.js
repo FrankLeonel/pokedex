@@ -32,7 +32,7 @@ const HeaderDetail = ({ pokemon, idVariantyDefault, onClickFavorites }) => {
             <FaArrowLeft />
           </Link>
           <S.ContainerRight>
-            {pokemonsFavorite?.includes(pokemon.id) ? (
+            {pokemonsFavorite && pokemonsFavorite.includes(pokemon.id) ? (
               <S.FavoriteView onClick={onClickFavorites}>
                 <S.IconFavorite />
                 <p>Remove</p>
