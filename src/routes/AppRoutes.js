@@ -8,7 +8,7 @@ const AppRoutes = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<DashboardPage />} />
-        <Route path="/favoritos" element={<FavoritosPage />} />
+        <Route path="/favorites" element={<FavoritosPage />} />
         <Route path="/details/:id" element={<DetailsPage />} />
 
         <Route path="*" element={<Navigate to="/" />} />

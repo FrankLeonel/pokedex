@@ -2,6 +2,7 @@ import imgPokeball from "assets/icons/pokeball.svg";
 import Content from "components/Content";
 import PokemonType from "components/PokemonType";
 import SelectTheme from "components/SelectTheme";
+import { usePokemon } from "contexts/PokemonContext";
 import { useCallback } from "react";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -9,8 +10,10 @@ import { capitalizeHelper } from "utils/capitalize";
 import colorType from "utils/colorType";
 import * as S from "./HeaderDetail.style";
 
-const HeaderDetail = ({ pokemon, idVariantyDefault }) => {
+const HeaderDetail = ({ pokemon, idVariantyDefault, onClickFavorites }) => {
   const capitalize = useCallback(capitalizeHelper, []);
+
+  const { pokemonsFavorite } = usePokemon();
 
   const finalColor = colorType(
     pokemon.types[0].type.name,
@@ -28,7 +31,20 @@ const HeaderDetail = ({ pokemon, idVariantyDefault }) => {
           <Link to="/" className="icon">
             <FaArrowLeft />
           </Link>
-          <SelectTheme />
+          <S.ContainerRight>
+            {pokemonsFavorite.includes(pokemon.id) ? (
+              <S.FavoriteView onClick={onClickFavorites}>
+                <S.IconFavorite />
+                <p>Remove</p>
+              </S.FavoriteView>
+            ) : (
+              <S.FavoriteView onClick={onClickFavorites}>
+                <S.IconNoFavorite />
+                <p>Add</p>
+              </S.FavoriteView>
+            )}
+            <SelectTheme />
+          </S.ContainerRight>
         </S.Nav>
         <S.Container>
           {idVariantyDefault && idVariantyDefault > 1 ? (

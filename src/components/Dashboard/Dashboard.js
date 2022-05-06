@@ -49,7 +49,7 @@ const Dashboard = () => {
           {loading && <S.Loader />}
 
           <S.PokemonGrid>
-            {pokemonList.map((pokemon) => (
+            {pokemonList?.map((pokemon) => (
               <PokemonCard
                 key={pokemon.id}
                 pokemon={pokemon}
