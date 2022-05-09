@@ -19,82 +19,25 @@ const PokemonProvider = ({ children }) => {
 
   const addFavorite = useCallback(
     (pokemon) => {
-      const verifyPokemon = pokemonsFavorite?.find(
-        (item) => item.name === pokemon.name
-      );
-
-      let favorites = [];
-      if (!verifyPokemon) {
-        setPokemonsFavorite([]);
-        favorites = JSON.parse(
-          localStorage.getItem("PokemonsFavorite") || "[]"
-        );
-        favorites?.push(pokemon);
-        localStorage.setItem("PokemonsFavorite", JSON.stringify(favorites));
-        setPokemonsFavorite(favorites);
-      } else {
-        setPokemonsFavorite([]);
-        favorites = [];
-        favorites = JSON.parse(
-          localStorage.getItem("PokemonsFavorite") || "[]"
-        );
-        let index = favorites.findIndex((name) => name === pokemon.name);
-        favorites.splice(index, 1);
-        localStorage.setItem("PokemonsFavorite", JSON.stringify(favorites));
-        setPokemonsFavorite(favorites);
-      }
-    },
-    [pokemonsFavorite]
-  );
-
-  const addFav = useCallback(
-    (id) => {
-      let array = pokemonsFavorite;
-      let addArray = true;
-
-      // eslint-disable-next-line array-callback-return
-      array.map((item, key) => {
-        if (item === id) {
-          array.splice(key, 1);
-          addArray = false;
-        }
-      });
-      if (addArray) {
-        array.push(id);
-      }
-      setPokemonsFavorite([...array]);
-
-      localStorage.setItem("favorites", JSON.stringify(pokemonsFavorite));
-
-      var storage = localStorage.getItem("favItem" + id || "0");
-
-      if (storage == null) {
-        const verifyPokemon = pokemonList.find((pokemon) => pokemon.id === id);
-
-        localStorage.setItem("favItem" + id, JSON.stringify(verifyPokemon));
-      } else {
-        localStorage.removeItem("favItem" + id);
-      }
-    },
-    [pokemonList, pokemonsFavorite]
-  );
-
-  const addPokemon = useCallback(
-    (pokemon) => {
       const verifyPokemon = pokemonsFavorite.find(
         (item) => item.name === pokemon.name
       );
-      if (!verifyPokemon) setPokemonsFavorite([...pokemonsFavorite, pokemon]);
-    },
-    [pokemonsFavorite]
-  );
+      let array = pokemonsFavorite;
 
-  const removePokemon = useCallback(
-    (pokemon) => {
-      const pokemonsFavoriteFilter = pokemonsFavorite.filter(
-        (item) => item.name !== pokemon.name
+      if (!verifyPokemon) {
+        array.push(pokemon);
+        setPokemonsFavorite([...array]);
+      } else {
+        let index = array.findIndex((name) => name === pokemon.name);
+        array.splice(index, 1);
+
+        setPokemonsFavorite([...array]);
+      }
+
+      localStorage.setItem(
+        "PokemonsFavorite",
+        JSON.stringify(pokemonsFavorite)
       );
-      setPokemonsFavorite(pokemonsFavoriteFilter);
     },
     [pokemonsFavorite]
   );
@@ -234,33 +177,23 @@ const PokemonProvider = ({ children }) => {
   }, [getInitialPokemonList]);
 
   useEffect(() => {
-    // setPokemonsFavorite([]);
-    // const favorites = JSON.parse(
-    //   localStorage.getItem("PokemonsFavorite") || "[]"
-    // );
-    // setPokemonsFavorite(favorites);
-    // if (getArray !== "0") {
-    //   getArray?.map((item) => setPokemonsFavorite(item));
-    // }
-
     setPokemonsFavorite([]);
-    const favorites = JSON.parse(localStorage.getItem("favorites") || "0");
-    if (favorites !== "0") setPokemonsFavorite(favorites);
+    const favorites = JSON.parse(
+      localStorage.getItem("PokemonsFavorite") || "[]"
+    );
+    setPokemonsFavorite(favorites);
   }, []);
 
   return (
     <PokemonContext.Provider
       value={{
         addFavorite,
-        addFav,
         loading,
         setLoading,
         pokemonList,
         setPokemonList,
         getPokemon,
         pokemonsFavorite,
-        addPokemon,
-        removePokemon,
         getEvolutionChain,
         getPokemonInterval,
         getPokemonSearch,

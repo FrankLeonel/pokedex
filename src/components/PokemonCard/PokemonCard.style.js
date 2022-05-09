@@ -41,11 +41,16 @@ export const HeaderCard = styled.header(({ theme: { generalColors } }) => ({
   },
 }));
 
+export const ContainerRight = styled.div(({ theme }) => ({
+  display: "flex",
+  alignItems: "center",
+}));
+
 export const Index = styled.span(({ theme }) => ({
   fontWeight: 900,
   fontSize: "25px",
   opacity: 0.5,
-  marginRight: "10px",
+  marginRight: "18px",
   marginTop: "10px",
 }));
 
