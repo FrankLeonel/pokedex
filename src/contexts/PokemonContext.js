@@ -26,9 +26,17 @@ const PokemonProvider = ({ children }) => {
 
       if (!verifyPokemon) {
         array.push(pokemon);
+        array.sort(function (a, b) {
+          if (a.id < b.id) {
+            return -1;
+          } else {
+            return true;
+          }
+        });
         setPokemonsFavorite([...array]);
       } else {
-        let index = array.findIndex((name) => name === pokemon.name);
+        let index = array.findIndex((item) => item.name === pokemon.name);
+        console.log(index);
         array.splice(index, 1);
 
         setPokemonsFavorite([...array]);
