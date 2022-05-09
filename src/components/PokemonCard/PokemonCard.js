@@ -21,14 +21,17 @@ const PokemonCard = ({ pokemon, sprite }) => {
       <S.Container type1={finalColor.color1} type2={finalColor.color2}>
         <S.HeaderCard>
           <h3>{capitalize(pokemon.name)}</h3>
-          <S.Index>#{`000${pokemon.id}`.slice(-3)}</S.Index>
-          <S.FavoriteView>
-            {pokemonsFavorite && pokemonsFavorite.includes(pokemon.id) ? (
-              <S.IconFavorite />
-            ) : (
-              <S.IconNoFavorite />
-            )}
-          </S.FavoriteView>
+          <S.ContainerRight>
+            <S.Index>#{`000${pokemon.id}`.slice(-3)}</S.Index>
+            <S.FavoriteView>
+              {pokemonsFavorite &&
+              pokemonsFavorite.some((item) => item.name === pokemon.name) ? (
+                <S.IconFavorite />
+              ) : (
+                <S.IconNoFavorite />
+              )}
+            </S.FavoriteView>
+          </S.ContainerRight>
         </S.HeaderCard>
         <S.Section sprite={sprite}>
           <ul>

@@ -19,7 +19,6 @@ const Details = () => {
     getEvolutionChain,
     getIdVariantDefault,
     addFavorite,
-    addFav,
   } = usePokemon();
 
   const [pokemon, setPokemon] = useState(null);
@@ -54,7 +53,7 @@ const Details = () => {
   }, [pokemon, getWeaknessesAndResistances]);
 
   const handlePokemonFavorites = (pokemon) => {
-    addFav(pokemon.id);
+    addFavorite(pokemon);
   };
 
   useEffect(() => {

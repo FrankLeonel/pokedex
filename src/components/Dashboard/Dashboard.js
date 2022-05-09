@@ -54,7 +54,6 @@ const Dashboard = () => {
                 key={pokemon.id}
                 pokemon={pokemon}
                 sprite={pokemon.sprites.other["official-artwork"].front_default}
-                isFavorite={pokemon.isFavorite}
               />
             ))}
           </S.PokemonGrid>
