@@ -1,3 +1,4 @@
+import { ReactComponent as FilterIcon } from "assets/icons/filter-icon.svg";
 import Content from "components/Content";
 import EmptyPage from "components/EmptyPage";
 import Header from "components/Header";
@@ -7,13 +8,15 @@ import * as S from "./Favorite.style";
 
 const Favorite = () => {
   const { pokemonsFavorite } = usePokemon();
-
   return (
     <>
       <Header />
       <Content>
         <S.ContainerFavorite>
-          {pokemonsFavorite.length ? (
+          <S.FilterButton>
+            Filtros <FilterIcon />
+          </S.FilterButton>
+          {pokemonsFavorite?.length ? (
             <S.PokemonGrid>
               {pokemonsFavorite?.map((pokemon) => (
                 <PokemonCard
@@ -26,7 +29,10 @@ const Favorite = () => {
               ))}
             </S.PokemonGrid>
           ) : (
-            <EmptyPage />
+            <EmptyPage
+              title="It's kind of empty around here!"
+              subtitle="Search for pokemons to add them to your favorites."
+            />
           )}
         </S.ContainerFavorite>
       </Content>

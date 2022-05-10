@@ -200,12 +200,12 @@ const PokemonProvider = ({ children }) => {
   return (
     <PokemonContext.Provider
       value={{
-        addFavorite,
         loading,
         setLoading,
         pokemonList,
         setPokemonList,
         getPokemon,
+        addFavorite,
         pokemonsFavorite,
         getEvolutionChain,
         getPokemonInterval,

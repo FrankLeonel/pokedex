@@ -2,7 +2,7 @@ import pokemonSplash from "assets/images/pokemon.json";
 import Lottie from "lottie-react-web";
 import * as S from "./EmptyPage.style";
 
-const EmptyPage = () => {
+const EmptyPage = ({ title, subtitle }) => {
   return (
     <S.EmptyPageContainer>
       <Lottie
@@ -18,11 +18,9 @@ const EmptyPage = () => {
       />
 
       <S.Main>
-        <S.Title>It's kind of empty around here!</S.Title>
+        <S.Title>{title}</S.Title>
 
-        <S.Subtitle>
-          Search for pokemons to add them to your favorites.
-        </S.Subtitle>
+        <S.Subtitle>{subtitle}</S.Subtitle>
       </S.Main>
     </S.EmptyPageContainer>
   );
