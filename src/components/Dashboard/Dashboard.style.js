@@ -1,7 +1,7 @@
 import pokeball from "assets/icons/pokeball.svg";
 import styled from "styled-components";
 
-export const ContainerContents = styled.div(({ theme: { breakpoints } }) => ({
+export const ContainerContents = styled.div(({ theme }) => ({
   margin: "60px 0 30px",
 }));
 

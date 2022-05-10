@@ -1,13 +1,9 @@
 import styled from "styled-components";
 
-export const ContainerFavorite = styled.div(({ theme: { breakpoints } }) => ({
-  margin: "140px 0 30px",
+export const ContainerFavorite = styled.div(({ theme }) => ({
+  margin: "70px 0 30px",
   display: "flex",
   flexDirection: "column",
-
-  [breakpoints.md]: {
-    margin: "70px 0 30px",
-  },
 }));
 
 export const FilterButton = styled.button(
