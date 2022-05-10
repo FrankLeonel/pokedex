@@ -3,14 +3,13 @@ import styled from "styled-components";
 
 export const Form = styled.form(
   ({ theme: { breakpoints, formColor, primaryColor, primaryHoverColor } }) => ({
-    margin: "10px 0",
-    width: "100%",
+    margin: "20px 0",
+    width: "86%",
     display: "flex",
-    justifyContent: "center",
+    justifyContent: "flex-start",
 
     [breakpoints.md]: {
-      margin: 0,
-      marginLeft: "8px",
+      width: "44%",
     },
 
     input: {
@@ -19,19 +18,19 @@ export const Form = styled.form(
       border: "1px solid white",
       borderRight: "none",
       float: "left",
-      width: "78%",
+      width: "82%",
       backgroundColor: formColor.formElementBackground,
       transition: "background-color 1s ease",
       color: formColor.textOnFormElementBackground,
       borderRadius: "20px 0 0 20px",
 
       [breakpoints.md]: {
-        width: "85%",
+        width: "84%",
       },
     },
     button: {
       float: "left",
-      width: "12%",
+      width: "18%",
       padding: "8px",
       color: "white",
       border: "1px solid white",
@@ -41,7 +40,7 @@ export const Form = styled.form(
       transition: "background-color 1s ease",
 
       [breakpoints.md]: {
-        width: "15%",
+        width: "14%",
       },
     },
     "button:hover": {
