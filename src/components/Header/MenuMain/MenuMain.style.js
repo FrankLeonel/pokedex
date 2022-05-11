@@ -9,6 +9,7 @@ export const Items = styled.ul(({ theme: { breakpoints } }) => ({
     margin: "auto 28px",
     listStyle: "none",
     alignItems: "center",
+    height: "60px",
   },
 }));
 
@@ -17,12 +18,23 @@ export const Item = styled.li(({ theme: { colorMenu } }) => ({
   position: "relative",
   flexDirection: "column",
   alignItems: "center",
+  justifyContent: "center",
   minWidth: "146px",
   width: "146px",
-  height: "inherit",
+  height: "60px",
 
   "> * ": {
     color: colorMenu,
+  },
+
+  svg: {
+    fontSize: "18px",
+    marginRight: "8px",
+  },
+
+  "> div": {
+    alignSelf: "flex-end",
+    margin: 0,
   },
 }));
 
@@ -33,11 +45,13 @@ export const Link = styled(NavLink)(({ theme }) => ({
   textDecoration: "none",
   boxSizing: "border-box",
 
+  "&.favorites": { marginBottom: "20px" },
+
   "&.active": {
     "+ hr": {
       position: "absolute",
       margin: "auto 0",
-      top: 38,
+      top: 60,
       height: "3px",
     },
   },

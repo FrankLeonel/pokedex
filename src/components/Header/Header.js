@@ -3,8 +3,12 @@ import { ReactComponent as MenuIcon } from "assets/icons/menu-icon.svg";
 import Content from "components/Content";
 import Drawer from "components/Drawer";
 import SelectTheme from "components/SelectTheme";
+import TabNumberFavorites from "components/TabNumberFavorites";
+import { usePokemon } from "contexts/PokemonContext";
 import useToggle from "hooks/useToggle";
 import useWindowDimensions from "hooks/useWindowDimension";
+import { AiFillHome } from "react-icons/ai";
+import { BsStarFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import * as S from "./Header.style";
 import MenuMain from "./MenuMain";
@@ -13,6 +17,7 @@ import SeachBar from "./SeachBar";
 const Header = () => {
   // const { pokemons } = usePokemons();
   // const lengthFavorites = pokemons.length;
+  const { pokemonsFavorite } = usePokemon();
 
   const { width } = useWindowDimensions();
 
@@ -20,11 +25,14 @@ const Header = () => {
   const menuItems = [
     {
       label: "Home",
+      icon: <AiFillHome />,
       path: "/",
     },
     {
       label: "Favorites",
+      icon: <BsStarFill />,
       path: "/favorites",
+      tab: <TabNumberFavorites length={pokemonsFavorite.length} />,
     },
   ];
 

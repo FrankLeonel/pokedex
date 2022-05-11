@@ -28,7 +28,7 @@ export const Container = styled.div(({ theme: { generalColors, header } }) => ({
   display: "flex",
   alignItems: "center",
   width: "100%",
-  height: "60px",
+  height: "64px",
   boxShadow: `0 1px 2px 0 ${hexToRgba(generalColors.black, 0.1)}`,
 }));
 
