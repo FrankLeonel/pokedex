@@ -17,6 +17,18 @@ const PokemonProvider = ({ children }) => {
   const [loading, setLoading] = useState(!pokemonList.length);
   const [pokemonsFavorite, setPokemonsFavorite] = useState([]);
 
+  const getPokemonsFavoriteLocal = useCallback(() => {
+    setPokemonsFavorite([]);
+    const favorites = JSON.parse(
+      localStorage.getItem("PokemonsFavorite") || "[]"
+    );
+    setPokemonsFavorite(favorites);
+  }, []);
+
+  const savePokemonFavoriteLocal = useCallback(() => {
+    localStorage.setItem("PokemonsFavorite", JSON.stringify(pokemonsFavorite));
+  }, [pokemonsFavorite]);
+
   const addFavorite = useCallback(
     (pokemon) => {
       const verifyPokemon = pokemonsFavorite.find(
@@ -42,12 +54,9 @@ const PokemonProvider = ({ children }) => {
         setPokemonsFavorite([...array]);
       }
 
-      localStorage.setItem(
-        "PokemonsFavorite",
-        JSON.stringify(pokemonsFavorite)
-      );
+      savePokemonFavoriteLocal();
     },
-    [pokemonsFavorite]
+    [pokemonsFavorite, savePokemonFavoriteLocal]
   );
 
   const getPokemon = useCallback(async (id) => {
@@ -185,22 +194,18 @@ const PokemonProvider = ({ children }) => {
   }, [getInitialPokemonList]);
 
   useEffect(() => {
-    setPokemonsFavorite([]);
-    const favorites = JSON.parse(
-      localStorage.getItem("PokemonsFavorite") || "[]"
-    );
-    setPokemonsFavorite(favorites);
-  }, []);
+    getPokemonsFavoriteLocal();
+  }, [getPokemonsFavoriteLocal]);
 
   return (
     <PokemonContext.Provider
       value={{
-        addFavorite,
         loading,
         setLoading,
         pokemonList,
         setPokemonList,
         getPokemon,
+        addFavorite,
         pokemonsFavorite,
         getEvolutionChain,
         getPokemonInterval,

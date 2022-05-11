@@ -1,11 +1,28 @@
 import pokeball from "assets/icons/pokeball.svg";
 import styled from "styled-components";
 
-export const ContainerContents = styled.div(({ theme: { breakpoints } }) => ({
-  margin: "140px 0 30px",
+export const ContainerContents = styled.div(({ theme }) => ({
+  margin: "60px 0 30px",
+}));
 
-  [breakpoints.md]: {
-    margin: "90px 0 30px",
+export const ContainerFilter = styled.div(({ theme }) => ({
+  display: "flex",
+  justifyContent: "center",
+}));
+
+export const FilterButton = styled.button(({ theme: { logo } }) => ({
+  padding: 0,
+  marginLeft: "8px",
+  backgroundColor: "transparent",
+  border: "none",
+
+  svg: {
+    width: "fit-content",
+    height: "fit-content",
+    path: {
+      fill: logo,
+      transition: "fill 1s ease",
+    },
   },
 }));
 

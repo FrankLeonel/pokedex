@@ -10,16 +10,10 @@ export const Header = styled.div(
     zIndex: 99,
     width: "100%",
     display: "flex",
-    flexDirection: "column",
     alignItems: "center",
-    height: "auto",
+    height: "60px",
     backgroundColor: headerBackground,
     transition: "background-color 1s ease",
-
-    [breakpoints.md]: {
-      display: "flex",
-      flexDirection: "row",
-    },
   })
 );
 
@@ -86,20 +80,4 @@ export const ContainerOptions = styled.div(({ theme }) => ({
   alignItems: "center",
   justifyContent: "flex-end",
   height: "100%",
-}));
-
-export const FilterButton = styled.button(({ theme: { logo } }) => ({
-  padding: 0,
-  marginLeft: "8px",
-  backgroundColor: "transparent",
-  border: "none",
-
-  svg: {
-    width: "fit-content",
-    height: "fit-content",
-    path: {
-      fill: logo,
-      transition: "fill 1s ease",
-    },
-  },
 }));

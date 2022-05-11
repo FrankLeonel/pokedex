@@ -1,8 +1,12 @@
+import { ReactComponent as FilterIcon } from "assets/icons/filter-icon.svg";
 import BackTop from "components/BackTop";
 import Button from "components/Button";
 import Content from "components/Content";
+import EmptyPage from "components/EmptyPage";
 import Header from "components/Header";
+import SeachBar from "components/Header/SeachBar";
 import PokemonCard from "components/PokemonCard";
+import { endpoints } from "config/endpoints";
 import { usePokemon } from "contexts/PokemonContext";
 import useSearch from "hooks/useSearch";
 import { useCallback, useEffect, useState } from "react";
@@ -13,6 +17,8 @@ const Dashboard = () => {
     loading,
     setLoading,
     pokemonList,
+    setPokemonList,
+    getPokemonSearch,
     getPokemonInterval,
     getContinueSearchList,
   } = usePokemon();
@@ -36,6 +42,25 @@ const Dashboard = () => {
     search,
   ]);
 
+  const handleSearch = useCallback(
+    async (event) => {
+      event.preventDefault();
+      setPokemonList([]);
+      setLoading(true);
+
+      const { data } = await endpoints.getContinueSearchList();
+      const listPokemonNames = data.results;
+
+      const matchSearchList = listPokemonNames.filter((pokemon) => {
+        return pokemon.name.includes(search.toLowerCase());
+      });
+
+      await getPokemonSearch(matchSearchList);
+      setLoading(false);
+    },
+    [setLoading, setPokemonList, getPokemonSearch, search]
+  );
+
   useEffect(() => {
     if (pokemonList.length) setLoading(false);
     setHasMorePokemon(!!pokemonList.length && !(pokemonList.length % 52));
@@ -46,6 +71,15 @@ const Dashboard = () => {
       <Header />
       <Content>
         <S.ContainerContents>
+          <S.ContainerFilter>
+            <SeachBar
+              handleSearch={handleSearch}
+              placeholder="Search pokémon..."
+            />
+            <S.FilterButton>
+              <FilterIcon />
+            </S.FilterButton>
+          </S.ContainerFilter>
           {loading && <S.Loader />}
 
           <S.PokemonGrid>
@@ -68,9 +102,10 @@ const Dashboard = () => {
             )}
 
             {!loading && !pokemonList.length && (
-              <S.EmptyPokemonList>
-                <h3>Nenhum pokémon foi encontrado!</h3>
-              </S.EmptyPokemonList>
+              <EmptyPage
+                title="No pokemon found!"
+                subtitle="Look for pokemons that are in the database."
+              />
             )}
           </div>
         </S.ContainerContents>
