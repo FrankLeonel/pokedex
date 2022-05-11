@@ -6,9 +6,17 @@ const MenuMain = ({ items = [] }) => {
     <S.Items>
       {items.map((item) => (
         <S.Item key={item.label}>
-          <S.Link to={item.path} onClick={item?.onClick} end>
+          {item.tab}
+          <S.Link
+            to={item.path}
+            onClick={item?.onClick}
+            end
+            className={item.label === "Favorites" ? "favorites" : null}
+          >
+            {item.icon}
             {item.label}
           </S.Link>
+
           <Divider />
         </S.Item>
       ))}

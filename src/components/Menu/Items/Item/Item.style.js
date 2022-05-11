@@ -43,12 +43,15 @@ export const Icon = styled.div(({ theme }) => ({
   display: "flex",
   flexGrow: 0,
   flexShrink: 0,
-  width: "24px",
-  height: "24px",
-  marginRight: "20px",
+  marginRight: "10px",
 
   svg: {
-    width: "fit-content",
-    height: "fit-content",
+    width: "26px",
+    height: "26px",
   },
+}));
+
+export const DivTab = styled.div(({ theme }) => ({
+  marginLeft: "6px",
+  marginBottom: "14px",
 }));
