@@ -2,20 +2,18 @@ import { ReactComponent as Pokemon } from "assets/icons/logo-white.svg";
 import styled from "styled-components";
 import hexToRgba from "utils/hexToRgba";
 
-export const Header = styled.div(
-  ({ theme: { breakpoints, headerBackground } }) => ({
-    position: "fixed",
-    top: 0,
-    left: 0,
-    zIndex: 99,
-    width: "100%",
-    display: "flex",
-    alignItems: "center",
-    height: "60px",
-    backgroundColor: headerBackground,
-    transition: "background-color 1s ease",
-  })
-);
+export const Header = styled.div(({ theme: { headerBackground } }) => ({
+  position: "fixed",
+  top: 0,
+  left: 0,
+  zIndex: 99,
+  width: "100%",
+  display: "flex",
+  alignItems: "center",
+  height: "64px",
+  backgroundColor: headerBackground,
+  transition: "background-color 1s ease",
+}));
 
 export const Container = styled.div(({ theme: { generalColors, header } }) => ({
   backgroundColor: header,
