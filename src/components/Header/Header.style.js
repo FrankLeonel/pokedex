@@ -16,6 +16,9 @@ export const Header = styled.div(({ theme: { headerBackground } }) => ({
 }));
 
 export const Container = styled.div(({ theme: { generalColors, header } }) => ({
+  position: "fixed",
+  top: 0,
+  left: 0,
   backgroundColor: header,
   display: "flex",
   alignItems: "center",
