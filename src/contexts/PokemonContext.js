@@ -1,4 +1,5 @@
 import { endpoints } from "config/endpoints";
+import { usePokemonFavorite } from "hooks/usePokemonFavorite";
 import useSearch from "hooks/useSearch";
 import React, {
   createContext,
@@ -15,19 +16,7 @@ const PokemonProvider = ({ children }) => {
   const [pokemonList, setPokemonList] = useState([]);
   const { search } = useSearch();
   const [loading, setLoading] = useState(!pokemonList.length);
-  const [pokemonsFavorite, setPokemonsFavorite] = useState([]);
-
-  const getPokemonsFavoriteLocal = useCallback(() => {
-    setPokemonsFavorite([]);
-    const favorites = JSON.parse(
-      localStorage.getItem("PokemonsFavorite") || "[]"
-    );
-    setPokemonsFavorite(favorites);
-  }, []);
-
-  const savePokemonFavoriteLocal = useCallback(() => {
-    localStorage.setItem("PokemonsFavorite", JSON.stringify(pokemonsFavorite));
-  }, [pokemonsFavorite]);
+  const { pokemonsFavorite, setPokemonsFavorite } = usePokemonFavorite();
 
   const addFavorite = useCallback(
     (pokemon) => {
@@ -53,10 +42,8 @@ const PokemonProvider = ({ children }) => {
 
         setPokemonsFavorite([...array]);
       }
-
-      savePokemonFavoriteLocal();
     },
-    [pokemonsFavorite, savePokemonFavoriteLocal]
+    [pokemonsFavorite, setPokemonsFavorite]
   );
 
   const getPokemon = useCallback(async (id) => {
@@ -193,9 +180,9 @@ const PokemonProvider = ({ children }) => {
     getInitialPokemonList();
   }, [getInitialPokemonList]);
 
-  useEffect(() => {
-    getPokemonsFavoriteLocal();
-  }, [getPokemonsFavoriteLocal]);
+  // useEffect(() => {
+  //   getPokemonsFavoriteLocal();
+  // }, [getPokemonsFavoriteLocal]);
 
   return (
     <PokemonContext.Provider
