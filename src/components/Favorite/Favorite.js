@@ -1,4 +1,3 @@
-import { ReactComponent as FilterIcon } from "assets/icons/filter-icon.svg";
 import Content from "components/Content";
 import EmptyPage from "components/EmptyPage";
 import Header from "components/Header";
@@ -13,9 +12,6 @@ const Favorite = () => {
       <Header />
       <Content>
         <S.ContainerFavorite>
-          <S.FilterButton>
-            Filtros <FilterIcon />
-          </S.FilterButton>
           {pokemonsFavorite?.length ? (
             <S.PokemonGrid>
               {pokemonsFavorite?.map((pokemon) => (

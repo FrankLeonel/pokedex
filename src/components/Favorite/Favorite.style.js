@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ContainerFavorite = styled.div(({ theme }) => ({
-  margin: "70px 0 30px",
+  marginTop: "90px",
   display: "flex",
   flexDirection: "column",
 }));

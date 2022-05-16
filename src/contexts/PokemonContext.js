@@ -37,7 +37,6 @@ const PokemonProvider = ({ children }) => {
         setPokemonsFavorite([...array]);
       } else {
         let index = array.findIndex((item) => item.name === pokemon.name);
-        console.log(index);
         array.splice(index, 1);
 
         setPokemonsFavorite([...array]);

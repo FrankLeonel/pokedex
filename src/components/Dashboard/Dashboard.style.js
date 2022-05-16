@@ -10,22 +10,6 @@ export const ContainerFilter = styled.div(({ theme }) => ({
   justifyContent: "center",
 }));
 
-export const FilterButton = styled.button(({ theme: { logo } }) => ({
-  padding: 0,
-  marginLeft: "8px",
-  backgroundColor: "transparent",
-  border: "none",
-
-  svg: {
-    width: "fit-content",
-    height: "fit-content",
-    path: {
-      fill: logo,
-      transition: "fill 1s ease",
-    },
-  },
-}));
-
 export const PokemonGrid = styled.ul(({ theme }) => ({
   display: "grid",
   gridTemplateColumns: "repeat(1, 1fr)",

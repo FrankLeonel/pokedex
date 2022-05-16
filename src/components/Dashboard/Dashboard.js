@@ -1,4 +1,3 @@
-import { ReactComponent as FilterIcon } from "assets/icons/filter-icon.svg";
 import BackTop from "components/BackTop";
 import Button from "components/Button";
 import Content from "components/Content";
@@ -76,9 +75,6 @@ const Dashboard = () => {
               handleSearch={handleSearch}
               placeholder="Search pokémon..."
             />
-            <S.FilterButton>
-              <FilterIcon />
-            </S.FilterButton>
           </S.ContainerFilter>
           {loading && <S.Loader />}
 
