@@ -179,10 +179,6 @@ const PokemonProvider = ({ children }) => {
     getInitialPokemonList();
   }, [getInitialPokemonList]);
 
-  // useEffect(() => {
-  //   getPokemonsFavoriteLocal();
-  // }, [getPokemonsFavoriteLocal]);
-
   return (
     <PokemonContext.Provider
       value={{
