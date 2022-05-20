@@ -4,7 +4,7 @@ export const Type = styled.li(
   ({ theme: { breakpoints, colorsPokemon, generalColors }, type }) => ({
     listStyleType: "none",
     borderRadius: "20px",
-    color: generalColors.white,
+    color: generalColors.grayDark,
     fontSize: "12px",
     fontWeight: "bolder",
     textAlign: "center",

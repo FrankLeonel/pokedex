@@ -3,7 +3,7 @@ import Content from "components/Content";
 import PokemonType from "components/PokemonType";
 import SelectTheme from "components/SelectTheme";
 import { usePokemon } from "contexts/PokemonContext";
-import { useCallback } from "react";
+import React, { useCallback } from "react";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { capitalizeHelper } from "utils/capitalize";

@@ -17,8 +17,8 @@ const PokemonCard = ({ pokemon, sprite }) => {
   );
 
   return (
-    <S.LinkCard to={`/details/${pokemon.id}`}>
-      <S.Container type1={finalColor.color1} type2={finalColor.color2}>
+    <S.Container type1={finalColor.color1} type2={finalColor.color2}>
+      <S.LinkCard to={`/details/${pokemon.id}`}>
         <S.HeaderCard>
           <h3>{capitalize(pokemon.name)}</h3>
           <S.ContainerRight>
@@ -39,10 +39,20 @@ const PokemonCard = ({ pokemon, sprite }) => {
               <PokemonType key={type.slot} type={type.type.name} />
             ))}
           </ul>
-          <div className="pokemon_image" />
+
+          <S.Image
+            alt="image-pokemon"
+            src={sprite}
+            visibleByDefault={false}
+            delayMethod={"debounce"}
+            width={135}
+            height={135}
+          />
+
+          <div />
         </S.Section>
-      </S.Container>
-    </S.LinkCard>
+      </S.LinkCard>
+    </S.Container>
   );
 };
 

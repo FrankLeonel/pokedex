@@ -1,4 +1,5 @@
 import { BsStar, BsStarFill } from "react-icons/bs";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import hexToRgba from "utils/hexToRgba";
@@ -73,13 +74,9 @@ export const Section = styled.section(({ theme, sprite }) => ({
     display: "flex",
     flexDirection: "column",
   },
+  justifyContent: "space-between",
+}));
 
-  ".pokemon_image": {
-    backgroundImage: `url(${sprite})`,
-    width: "100%",
-    backgroundSize: "contain",
-    backgroundPosition: "center center",
-    backgroundRepeat: "no-repeat",
-    transform: "translateY(-10px)",
-  },
+export const Image = styled(LazyLoadImage)(({ theme }) => ({
+  transform: "translateY(-10px)",
 }));
