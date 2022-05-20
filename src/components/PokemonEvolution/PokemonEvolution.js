@@ -1,6 +1,6 @@
 import ContainerPokemon from "components/ContainerPokemon";
 import { usePokemon } from "contexts/PokemonContext";
-import { useCallback } from "react";
+import { Fragment, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { capitalizeHelper } from "utils/capitalize";
 import * as S from "./PokemonEvolution.style";
@@ -21,8 +21,12 @@ const PokemonEvolution = ({ evolutionChain }) => {
                 >
                   <S.Evolution>
                     <S.Image
-                      src={getPokemonImage(evolve.species.url.slice(42, -1))}
                       alt={evolve.species.name}
+                      src={getPokemonImage(evolve.species.url.slice(42, -1))}
+                      visibleByDefault={false}
+                      delayMethod={"debounce"}
+                      width={200}
+                      height={200}
                     />
                     <S.Name>
                       <h3>{capitalizeHelper(evolve.species.name)}</h3>
@@ -35,7 +39,11 @@ const PokemonEvolution = ({ evolutionChain }) => {
               ))}
             </S.Stage>
             {!!chains[0].evolves_to.length && <S.ChevronRight />}
-            {chains.map((evolve) => handleEvolves(evolve.evolves_to))}
+            {chains.map((evolve) => (
+              <Fragment key={evolve.species.name}>
+                {handleEvolves(evolve.evolves_to)}
+              </Fragment>
+            ))}
           </>
         );
       }
@@ -56,6 +64,10 @@ const PokemonEvolution = ({ evolutionChain }) => {
                   <S.Image
                     src={getPokemonImage(chain.species.url.slice(42, -1))}
                     alt={chain.species.name}
+                    visibleByDefault={false}
+                    delayMethod={"debounce"}
+                    width={200}
+                    height={200}
                   />
                   <S.Name>
                     <h3>{capitalizeHelper(chain.species.name)}</h3>

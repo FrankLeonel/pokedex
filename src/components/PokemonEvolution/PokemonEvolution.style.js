@@ -1,4 +1,5 @@
 import { FaChevronRight } from "react-icons/fa";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import styled from "styled-components";
 
 export const Title = styled.h2(({ theme: { textColor } }) => ({
@@ -92,13 +93,17 @@ export const Evolution = styled.div(({ theme }) => ({
   },
 }));
 
-export const Image = styled.img(({ theme: { breakpoints } }) => ({
-  width: "55%",
+export const Image = styled(LazyLoadImage)(
+  ({ theme: { breakpoints }, width, height }) => ({
+    width: "55%",
+    height: "auto",
 
-  [breakpoints.md]: {
-    width: "200px",
-  },
-}));
+    [breakpoints.md]: {
+      width: width,
+      height: height,
+    },
+  })
+);
 
 export const Name = styled.div(
   ({ theme: { textColor, textColorInverted } }) => ({

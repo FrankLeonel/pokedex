@@ -77,12 +77,23 @@ const HeaderDetail = ({ pokemon, idVariantyDefault, onClickFavorites }) => {
             )}
             <S.ContainerImages>
               {pokemon.sprites.other["official-artwork"].front_default ? (
-                <S.ImgPokemon
+                <S.Image
+                  alt="image-pokemon"
                   src={pokemon.sprites.other["official-artwork"].front_default}
-                  alt="Arte Pokémon"
+                  visibleByDefault={false}
+                  delayMethod={"debounce"}
+                  width={220}
+                  height={220}
                 />
               ) : (
-                <S.ImgPokemon src={imgPokeball} alt="Arte Pokémon" />
+                <S.Image
+                  alt="image-pokemon"
+                  src={imgPokeball}
+                  visibleByDefault={false}
+                  delayMethod={"debounce"}
+                  width={220}
+                  height={220}
+                />
               )}
             </S.ContainerImages>
             {idVariantyDefault && idVariantyDefault < 898 ? (

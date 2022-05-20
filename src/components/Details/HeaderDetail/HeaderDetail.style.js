@@ -1,5 +1,6 @@
 import { BsStar, BsStarFill } from "react-icons/bs";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import styled from "styled-components";
 import hexToRgba from "utils/hexToRgba";
 
@@ -168,6 +169,12 @@ export const ContainerImages = styled.div(({ theme }) => ({
   position: "relative",
   width: "220px",
   height: "220px",
+}));
+
+export const Image = styled(LazyLoadImage)(({ theme }) => ({
+  position: "absolute",
+  top: 0,
+  left: 0,
 }));
 
 export const ImgPokemon = styled.img(({ theme }) => ({
