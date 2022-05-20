@@ -16,21 +16,18 @@ const SelectTheme = () => {
   };
 
   return (
-    <>
-      <S.Label htmlFor="select">Mudar Tema</S.Label>
-      <S.SwitchTheme
-        id="select"
-        onChange={toggleTheme}
-        checked={theme === "dark"}
-        checkedIcon={<S.IconMoon size={20} />}
-        uncheckedIcon={<S.IconSun size={20} />}
-        height={28}
-        width={56}
-        handleDiameter={22}
-        offColor={usedTheme.switchColor}
-        onColor={usedTheme.switchColor}
-      />
-    </>
+    <S.SwitchTheme
+      id="select"
+      onChange={toggleTheme}
+      checked={theme === "dark"}
+      checkedIcon={<S.IconMoon size={20} />}
+      uncheckedIcon={<S.IconSun size={20} />}
+      height={28}
+      width={56}
+      handleDiameter={22}
+      offColor={usedTheme.switchColor}
+      onColor={usedTheme.switchColor}
+    />
   );
 };
 
